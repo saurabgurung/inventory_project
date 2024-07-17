@@ -67,7 +67,7 @@
                     <a href="{{route('product')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Product
+                            categories
                         </p>
                     </a>
                 </li>

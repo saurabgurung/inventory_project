@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('items', function (Blueprint $table) {
-            $table->id('item_id');
-            $table->string('item_name');
+        Schema::create('products', function (Blueprint $table) {
+            $table->id();
+            $table->string('product_name');
             $table->longText('description');
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('category_id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->unsignedBigInteger('supplier_id');
-            $table->foreign('supplier_id')->references('supplier_id')->on('suppliers');
+            $table->foreign('supplier_id')->references('id')->on('suppliers');
             $table->bigInteger('cost_price');
             $table->bigInteger('sell_price');
             $table->integer('quantity_in_stock');
@@ -30,9 +30,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-
     public function down(): void
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('products');
     }
 };
