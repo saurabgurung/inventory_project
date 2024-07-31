@@ -6,12 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Categories extends Model
+class Order_product extends Model
 {
     use HasFactory, softDeletes;
-    protected $fillable=[
+
+    protected $fillable = [
         'id',
-        'category_name',
-        'description'
+        'order_id',
+        'product_id',
+        'quantity',
+        'price'
     ];
 }
+
+

@@ -26,7 +26,7 @@ This plugin is used to make available some browser-related utility functions.
         /**
         - getPixelRatio(context)
 
-         This function returns the current pixel ratio defined by the product of desktop
+         This function returns the current pixel ratio defined by the categories of desktop
          zoom and page zoom.
          Additional info: https://www.html5rocks.com/en/tutorials/canvas/hidpi/
         */

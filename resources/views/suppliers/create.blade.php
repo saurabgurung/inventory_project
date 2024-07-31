@@ -10,22 +10,24 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Categories</h3>
+                            <h3 class="card-title">Suppliers</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form>
+                        <form action="{{route('suppliers.store')}}" method="post">
+                            @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="category_name">Category Name</label>
-                                    <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Enter category name">
+                                    <label for="supplier_name">Supplier Name</label>
+                                    <input type="text" class="form-control" id="supplier_name" name="supplier_name" placeholder="Enter supplier's name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <input type="text" class="form-control" id="description" name="description" placeholder="Product description">
+                                    <label for="cont_number">Contact Number</label>
+                                    <input type="number" class="form-control" id="cont_number" name="cont_number" placeholder="Enter your contact Number">
 
                                 </div>
-               </div>
+
+                            </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">

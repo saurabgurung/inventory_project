@@ -3460,8 +3460,8 @@ exports.prepareContent = function(name, inputData, isBinary, isOptimizedBinarySt
 
     // if inputData is already a promise, this flatten it.
     var promise = external.Promise.resolve(inputData).then(function(data) {
-        
-        
+
+
         var isBlob = support.blob && (data instanceof Blob || ['[object File]', '[object Blob]'].indexOf(Object.prototype.toString.call(data)) !== -1);
 
         if (isBlob && typeof FileReader !== "undefined") {
@@ -5702,7 +5702,7 @@ exports.utf8border = function (buf, max) {
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a categories, an acknowledgment in the categories documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -5751,7 +5751,7 @@ module.exports = adler32;
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a categories, an acknowledgment in the categories documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -5825,7 +5825,7 @@ module.exports = {
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a categories, an acknowledgment in the categories documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -5882,7 +5882,7 @@ module.exports = crc32;
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a categories, an acknowledgment in the categories documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -7758,7 +7758,7 @@ exports.deflateTune = deflateTune;
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a categories, an acknowledgment in the categories documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -7818,7 +7818,7 @@ module.exports = GZheader;
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a categories, an acknowledgment in the categories documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -8165,7 +8165,7 @@ module.exports = function inflate_fast(strm, start) {
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a categories, an acknowledgment in the categories documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -9723,7 +9723,7 @@ exports.inflateUndermine = inflateUndermine;
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a categories, an acknowledgment in the categories documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -10068,7 +10068,7 @@ module.exports = function inflate_table(type, lens, lens_index, codes, table, ta
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a categories, an acknowledgment in the categories documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -10102,7 +10102,7 @@ module.exports = {
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a categories, an acknowledgment in the categories documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.
@@ -11324,7 +11324,7 @@ exports._tr_align = _tr_align;
 //
 // 1. The origin of this software must not be misrepresented; you must not
 //   claim that you wrote the original software. If you use this software
-//   in a product, an acknowledgment in the product documentation would be
+//   in a categories, an acknowledgment in the categories documentation would be
 //   appreciated but is not required.
 // 2. Altered source versions must be plainly marked as such, and must not be
 //   misrepresented as being the original software.

@@ -2,20 +2,20 @@
 // Pages: E-commerce
 //
 
-// product image
+// categories image
 .product-image {
   @include img-fluid ();
   width: 100%;
 }
 
-// product image thumbnails list
+// categories image thumbnails list
 .product-image-thumbs {
   align-items: stretch;
   display: flex;
   margin-top: 2rem;
 }
 
-// product image thumbnail
+// categories image thumbnail
 .product-image-thumb {
   @include box-shadow($thumbnail-box-shadow);
   @include border-radius($thumbnail-border-radius);
@@ -37,7 +37,7 @@
   }
 }
 
-// product share
+// categories share
 .product-share {
   a {
     margin-right: .5rem;
