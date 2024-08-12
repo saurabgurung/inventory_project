@@ -11,7 +11,6 @@ class Person extends Model
 
     use HasFactory, SoftDeletes;
     protected $fillable=[
-        'id',
         'username',
         'password',
         'email',

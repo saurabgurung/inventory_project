@@ -20,11 +20,17 @@
                                 <div class="form-group">
                                     <label for="category_name">Category Name</label>
                                     <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Enter category name">
+                                    @error('category_name')
+                                    <p class="text-danger">thi is required</p>
+                                    @enderror
+
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Description</label>
-                                    <input type="text" class="form-control" id="description" name="description" placeholder="Product description">
-
+                                    <textarea type="text" class="form-control" id="description" name="description" placeholder="Product description"></textarea>
+                                    @error('description')
+                                    <p class="text-danger">this is required</p>
+                                    @enderror
                                 </div>
                </div>
                             <!-- /.card-body -->

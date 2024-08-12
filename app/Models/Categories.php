@@ -10,7 +10,6 @@ class Categories extends Model
 {
     use HasFactory, softDeletes;
     protected $fillable=[
-        'id',
         'category_name',
         'description'
     ];

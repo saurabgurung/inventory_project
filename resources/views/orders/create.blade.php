@@ -10,34 +10,42 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Suppliers</h3>
+                            <h3 class="card-title">Orders</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{route('suppliers.store')}}" method="post">
+                        <form action="{{route('orders.store')}}" method="post">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="supplier_name">Supplier Name</label>
-                                    <input type="text" class="form-control" id="supplier_name" name="supplier_name" placeholder="Enter supplier's name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="contact_number">Contact Number</label>
-                                    <input type="number" class="form-control" id="contact_number" name="contact_number" placeholder="Enter your contact Number">
-
+                                    <label for="order_date">Order Date</label>
+                                    <input type="date" class="form-control" id="order_date" name="order_date" placeholder="Enter Date">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email">
+                                    <label for="supplier_id">Suppliers Id</label>
+                                    <input type="text" class="form-control" id="supplier_id" name="supplier_id" placeholder="">
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="total_amount">Total Amount</label>
+                                    <input type="number" class="form-control" id="total_amount" name="total_amount" placeholder="">
 
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="address">Address</label>
-                                    <input type="text" class="form-control" id="address" name="address" placeholder="Enter you Temporary Address">
 
+                                    <label for="status">Status</label>
+
+                                    <select name="status" id="status" class="form-control">
+                                        <option value="pending">Pending</option>
+                                        <option value="completed">Completed</option>
+                                        <option value="cancelled">cancelled</option>
+                                    </select>
                                 </div>
+
                             </div>
                             <!-- /.card-body -->
 

@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use function Symfony\Component\Translation\t;
 
-class ProductStoreRequest extends FormRequest
+class CategoriesStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +23,9 @@ class ProductStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cost_price' => 'required|numeric',
-            'sell_price' => 'required|numeric',
-            'quantity_in_stock' => 'required',
-            'product_name' => 'required|string',
-            'description' => 'required|string',
-            'category_id' => 'required',
-            'supplier_id' => 'required',
+            'category_name' => 'required',
+            'description' => 'required',
         ];
     }
 }
+

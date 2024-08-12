@@ -10,33 +10,38 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Suppliers</h3>
+                            <h3 class="card-title">Users</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{route('suppliers.store')}}" method="post">
+                        <form action="{{route('person.store')}}" method="post">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="supplier_name">Supplier Name</label>
-                                    <input type="text" class="form-control" id="supplier_name" name="supplier_name" placeholder="Enter supplier's name">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="username">
                                 </div>
                                 <div class="form-group">
-                                    <label for="contact_number">Contact Number</label>
-                                    <input type="number" class="form-control" id="contact_number" name="contact_number" placeholder="Enter your contact Number">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
 
                                 </div>
 
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
 
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="address">Address</label>
-                                    <input type="text" class="form-control" id="address" name="address" placeholder="Enter you Temporary Address">
 
+                                <div class="form-group">
+
+                                    <label for="transaction_type">Role</label>
+
+                                    <select name="role" id="role" class="form-control">
+                                        <option value="admin">admin</option>
+                                        <option value="user">user</option>
+                                    </select>
                                 </div>
                             </div>
                             <!-- /.card-body -->

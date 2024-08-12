@@ -11,7 +11,7 @@ class Order_product extends Model
     use HasFactory, softDeletes;
 
     protected $fillable = [
-        'id',
+
         'order_id',
         'product_id',
         'quantity',

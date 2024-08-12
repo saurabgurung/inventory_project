@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SuppliersStoreRequest;
-use App\Models\Categories;
-use App\Models\Suppliers;
+use App\Http\Requests\PersonStoreRequest;
+use App\Models\Person;
 use Illuminate\Http\Request;
 
-class SuppliersController extends Controller
+class PersonController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data= Suppliers::all();
-        return view('suppliers.index', compact('data'));
+        $data = Person::all();
+        return view('person.index');
     }
 
     /**
@@ -23,7 +22,7 @@ class SuppliersController extends Controller
      */
     public function create()
     {
-        return view('suppliers.create');
+        Return view('person.create');
     }
 
     /**
@@ -31,18 +30,16 @@ class SuppliersController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
-
-        $data = Suppliers::create([
-            'supplier_name'=> $request->supplier_name,
-            'contact_number'=>$request->contact_number,
-            'address'=>$request->address,
-            'email'=>$request->email
-            ]);
+        $data = Person::create([
+            'username'=> $request->username,
+            'password'=>$request->password,
+            'email'=>$request->email,
+            'role'=>$request->role
+        ]);
         if ($data){
-            return view('suppliers.index')->with('success', 'supplier is successfully added ');
+            return view('person.index')->with('success','Person created successfully');
         }else{
-            return redirect()->back()->with('error', 'something went wrong');
+            return redirect()->back()->with('error','Person not created');
         }
     }
 

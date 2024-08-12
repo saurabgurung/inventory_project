@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProductStoreRequest;
+use App\Http\Requests\CategoriesStoreRequest;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -12,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-
+        $data= Categories::all();
+        return view('categories.index',compact('data'));
     }
 
     /**
@@ -26,11 +28,30 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProductStoreRequest $request)
+    public function store(Request $request)
     {
-        dd($request->all());
+
+        $data=Categories::create([
+
+            'category_name'=>$request->category_name,
+            'description'=>$request->description
+
+
+        ]);
+        if ($data){
+                return view('categories.index')->with('success','category created successfully');
+        }
+        else {
+            return redirect()->back()->with('error','Something went wrong');
+//
+
+        }
+
+        }
+//        $data=Categories::create($request->all());
+
         //
-    }
+    //}
 
     /**
      * Display the specified resource.

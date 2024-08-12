@@ -10,32 +10,39 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Suppliers</h3>
+                            <h3 class="card-title">Transactions</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{route('suppliers.store')}}" method="post">
+                        <form action="{{route('transactions.store')}}" method="post">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="supplier_name">Supplier Name</label>
-                                    <input type="text" class="form-control" id="supplier_name" name="supplier_name" placeholder="Enter supplier's name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="contact_number">Contact Number</label>
-                                    <input type="number" class="form-control" id="contact_number" name="contact_number" placeholder="Enter your contact Number">
-
+                                    <label for="product_id">Product Id</label>
+                                    <input type="text" class="form-control" id="product_id" name="product_id" placeholder="">
                                 </div>
 
+
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email">
+
+                                    <label for="transaction_type">Transaction Type</label>
+
+                                    <select name="transaction_type" id="transaction_type" class="form-control">
+                                        <option value="in">in</option>
+                                      <option value="out">out</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="quantity">Quantity</label>
+                                    <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter the Quantity">
 
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="address">Address</label>
-                                    <input type="text" class="form-control" id="address" name="address" placeholder="Enter you Temporary Address">
+                                    <label for="transaction_date">Transaction Date</label>
+                                    <input type="date" class="form-control" id="transaction_date" name="transaction_date" placeholder=" ">
 
                                 </div>
                             </div>

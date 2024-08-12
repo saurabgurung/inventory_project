@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SuppliersStoreRequest;
-use App\Models\Categories;
-use App\Models\Suppliers;
+use App\Models\Order_product;
 use Illuminate\Http\Request;
 
-class SuppliersController extends Controller
+class Order_ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data= Suppliers::all();
-        return view('suppliers.index', compact('data'));
+        $data = Order_product::all();
+        return view('order_product.index');
     }
 
     /**
@@ -23,7 +21,7 @@ class SuppliersController extends Controller
      */
     public function create()
     {
-        return view('suppliers.create');
+        return view('order_product.create');
     }
 
     /**
@@ -31,18 +29,16 @@ class SuppliersController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
-
-        $data = Suppliers::create([
-            'supplier_name'=> $request->supplier_name,
-            'contact_number'=>$request->contact_number,
-            'address'=>$request->address,
-            'email'=>$request->email
-            ]);
+        $data = Order_product::create([
+            'order_id'=> $request->order_id,
+            'product_id'=>$request->product_id,
+            'quantity'=>$request->quantity,
+            'price'=>$request->price
+        ]);
         if ($data){
-            return view('suppliers.index')->with('success', 'supplier is successfully added ');
+            return view('order_product.index')->with('success', 'Order Product Added Successfully');
         }else{
-            return redirect()->back()->with('error', 'something went wrong');
+            return redirect()->back()->with('error', 'Order Product Not Added');
         }
     }
 

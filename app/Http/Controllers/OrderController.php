@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SuppliersStoreRequest;
-use App\Models\Categories;
-use App\Models\Suppliers;
+use App\Models\Orders;
 use Illuminate\Http\Request;
 
-class SuppliersController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data= Suppliers::all();
-        return view('suppliers.index', compact('data'));
+        $data = Orders::all();
+        return view('orders.index',compact('data'));
     }
 
     /**
@@ -23,7 +21,7 @@ class SuppliersController extends Controller
      */
     public function create()
     {
-        return view('suppliers.create');
+        return view('orders.create');
     }
 
     /**
@@ -31,18 +29,16 @@ class SuppliersController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
-
-        $data = Suppliers::create([
-            'supplier_name'=> $request->supplier_name,
-            'contact_number'=>$request->contact_number,
-            'address'=>$request->address,
-            'email'=>$request->email
-            ]);
+        $data = Orders::create([
+            'order_date'=> $request->order_date,
+            'supplier_id'=>$request->supplier_id,
+            'total_amount'=>$request->total_amount,
+            'status'=>$request->status
+        ]);
         if ($data){
-            return view('suppliers.index')->with('success', 'supplier is successfully added ');
+            return view('orders.index')->with('success','Order created successfully');
         }else{
-            return redirect()->back()->with('error', 'something went wrong');
+            return redirect()->back()->with('error','Something went wrong');
         }
     }
 

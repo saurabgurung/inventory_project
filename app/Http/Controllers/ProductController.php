@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SuppliersStoreRequest;
-use App\Models\Categories;
-use App\Models\Suppliers;
+use App\Http\Requests\ProductStoreRequest;
+use App\Models\Products;
 use Illuminate\Http\Request;
 
-class SuppliersController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data= Suppliers::all();
-        return view('suppliers.index', compact('data'));
+        return view('products.index');
     }
 
     /**
@@ -23,7 +21,8 @@ class SuppliersController extends Controller
      */
     public function create()
     {
-        return view('suppliers.create');
+        $data= Products::all();
+        return view('products.create');
     }
 
     /**
@@ -31,20 +30,25 @@ class SuppliersController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
-
-        $data = Suppliers::create([
-            'supplier_name'=> $request->supplier_name,
-            'contact_number'=>$request->contact_number,
-            'address'=>$request->address,
-            'email'=>$request->email
-            ]);
+        $data=Products::create([
+            'product_name'=>$request->product_name,
+            'description'=>$request->description,
+            'category_id'=>$request->category_id,
+            'supplier_id'=>$request->supplier_id,
+            'cost_price'=>$request->cost_price,
+            'sell_price'=>$request->sell_price,
+            'quantity_in_stock'=>$request->quantity_in_stock
+        ]);
         if ($data){
-            return view('suppliers.index')->with('success', 'supplier is successfully added ');
-        }else{
-            return redirect()->back()->with('error', 'something went wrong');
+            return redirect()->route('products.index')->with('success','Product created successfully');
         }
+        else {
+            return redirect()->back()->with('error','Something went wrong');
+
+        }
+
     }
+
 
     /**
      * Display the specified resource.

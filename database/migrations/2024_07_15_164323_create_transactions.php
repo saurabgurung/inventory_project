@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
-            $table->boolean('transaction_type');
+            $table->string('transaction_type');
             $table->integer('quantity');
             $table->date('transaction_date');
             $table->softDeletes();

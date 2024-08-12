@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SuppliersStoreRequest;
-use App\Models\Categories;
-use App\Models\Suppliers;
+use App\Models\Transactions;
 use Illuminate\Http\Request;
 
-class SuppliersController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data= Suppliers::all();
-        return view('suppliers.index', compact('data'));
+        $data = Transactions::all();
+        return view('transaction.index');
     }
 
     /**
@@ -23,7 +21,8 @@ class SuppliersController extends Controller
      */
     public function create()
     {
-        return view('suppliers.create');
+        return view('transactions.create');
+
     }
 
     /**
@@ -31,18 +30,16 @@ class SuppliersController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
-
-        $data = Suppliers::create([
-            'supplier_name'=> $request->supplier_name,
-            'contact_number'=>$request->contact_number,
-            'address'=>$request->address,
-            'email'=>$request->email
-            ]);
+        $data = Transactions::create([
+            'product_id'=> $request->product_id,
+            'transaction_type'=>$request->transaction_type,
+            'quantity'=>$request->quantity,
+            'transaction_date'=>$request->transaction_date
+        ]);
         if ($data){
-            return view('suppliers.index')->with('success', 'supplier is successfully added ');
+            return view('transactions.index')->with('success', 'Transaction created successfully');
         }else{
-            return redirect()->back()->with('error', 'something went wrong');
+            return redirect()->back()->with('error', 'Something went wrong');
         }
     }
 

@@ -14,7 +14,7 @@ class Orders extends Model
       'order_date',
       'supplier_id',
       'total_amount',
-        'status',
+      'status',
 
     ];
 }
