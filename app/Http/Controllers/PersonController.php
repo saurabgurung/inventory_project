@@ -14,7 +14,7 @@ class PersonController extends Controller
     public function index()
     {
         $data = Person::all();
-        return view('person.index');
+        return view('person.index',compact('data'));
     }
 
     /**
@@ -37,7 +37,7 @@ class PersonController extends Controller
             'role'=>$request->role
         ]);
         if ($data){
-            return view('person.index')->with('success','Person created successfully');
+            return redirect()->Route('person.index')->with('success','Person created successfully');
         }else{
             return redirect()->back()->with('error','Person not created');
         }

@@ -40,7 +40,7 @@ class SuppliersController extends Controller
             'email'=>$request->email
             ]);
         if ($data){
-            return view('suppliers.index')->with('success', 'supplier is successfully added ');
+            return redirect()->Route('suppliers.index')->with('success', 'supplier is successfully added ');
         }else{
             return redirect()->back()->with('error', 'something went wrong');
         }

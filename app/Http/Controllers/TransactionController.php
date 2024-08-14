@@ -37,7 +37,7 @@ class TransactionController extends Controller
             'transaction_date'=>$request->transaction_date
         ]);
         if ($data){
-            return view('transactions.index')->with('success', 'Transaction created successfully');
+            return redirect()->Route('transactions.index')->with('success', 'Transaction created successfully');
         }else{
             return redirect()->back()->with('error', 'Something went wrong');
         }

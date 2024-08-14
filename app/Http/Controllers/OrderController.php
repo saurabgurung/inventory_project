@@ -36,7 +36,7 @@ class OrderController extends Controller
             'status'=>$request->status
         ]);
         if ($data){
-            return view('orders.index')->with('success','Order created successfully');
+            return redirect()->Route('orders.index')->with('success','Order created successfully');
         }else{
             return redirect()->back()->with('error','Something went wrong');
         }

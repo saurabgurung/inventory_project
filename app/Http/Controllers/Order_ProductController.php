@@ -36,7 +36,7 @@ class Order_ProductController extends Controller
             'price'=>$request->price
         ]);
         if ($data){
-            return view('order_product.index')->with('success', 'Order Product Added Successfully');
+            return redirect()->Route('order_product.index')->with('success', 'Order Product Added Successfully');
         }else{
             return redirect()->back()->with('error', 'Order Product Not Added');
         }
