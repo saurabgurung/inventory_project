@@ -13,7 +13,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/categories',[\App\Http\Controllers\CategoryController::class,'create'])->name('categories');
 Route::post('/categories-store',[\App\Http\Controllers\CategoryController::class,'store'])->name('categories.store');
 Route::get('/categories-index',[\App\Http\Controllers\CategoryController::class,'index'])->name('categories.index');
-Route::put('/categories-update',[\App\Http\Controllers\CategoryController::class,'update'])->name('categories.update');
+Route::get('categories-view/{id}',[\App\Http\Controllers\CategoryController::class,'show'])->name('categories.show');
+Route::put('categories-update/{id}',[\App\Http\Controllers\CategoryController::class,'update'])->name('categories.update');
 Route::delete('/categories-destroy',[\App\Http\Controllers\CategoryController::class,'destroy'])->name('categories.destroy');
 
 

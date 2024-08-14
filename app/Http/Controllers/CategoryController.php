@@ -56,10 +56,15 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show( $id)
     {
+        $categories=Categories::find($id);
+
+        return view('categories.edit',compact('categories'));
+//        dd('data',$Catagory);
         //
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -72,19 +77,16 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Categories $categories)
+    public function update(Request $request)
     {
-        // Validate the input data
-        $validated = $request->validate([
-            'category_name' => 'required|string|max:255',
-            'description' => 'required',
-        ]);
 
-        // Update the item with validated data
-        $categories->update($validated);
+        $categories=Categories::find($request->id);
 
-        // Redirect to the index page with a success message
-        return redirect()->Route('categories.index')->with('success', 'Item updated successfully.');
+        $categories->update([
+            'category_name'=>$request->category_name,
+            'description'=>$request->description
+            ]);
+        return redirect()->route('categories.index')->with('success', 'Item updated successfully.');
     }
 
 

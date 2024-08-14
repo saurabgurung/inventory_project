@@ -14,9 +14,11 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{route('categories.store',$categories->id)}}" method="post">
+                        <form action="{{route('categories.update',$categories->id)}}" method="post">
                             @csrf
                             @method('PUT')
+                            <input type="hidden" class="form-control" id="category_name" name="id"  value="{{ ( $categories->id) }}">
+
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="category_name">Category Name</label>
