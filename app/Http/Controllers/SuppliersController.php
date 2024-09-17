@@ -73,7 +73,7 @@ class SuppliersController extends Controller
         $suppliers =Suppliers::find($request->id);
         $suppliers->update([
             'supplier_name'=>$request->supplier_name,
-            'contact_number'=>$request->contact_name,
+            'contact_number'=>$request->contact_number,
             'email'=>$request->email,
             'address'=>$request->address
 

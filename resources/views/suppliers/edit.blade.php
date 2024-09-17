@@ -15,7 +15,7 @@
                         <!-- /.card-header -->
                         <!-- form start -->
 {{--                        <form action="{{route('suppliers.update',$suppliers->id)}}" method="post">--}}
-                            <form action="{{route('$suppliers.update',$suppliers->id)}}" method="post">
+                            <form action="{{route('suppliers.update',$suppliers->id)}}" method="post">
                             @csrf
                             @method('PUT')
                             <input type="hidden" class="form-control" id="id" name="id"  value="{{ ( $suppliers->id) }}">
