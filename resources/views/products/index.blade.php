@@ -38,7 +38,7 @@
                                                 <td>{{$cat->product_name}}</td>
                                                 <td>{{$cat->description}}</td>
                                                 <td>{{$cat->category_id}}</td>
-{{--                                                <td>{{$cat->supplier_id}}</td>--}}
+{{--                                                <td>{{$cat->supplier_id}}<  /td>--}}
                                                 <td>{{$cat->cost_price}}</td>
                                                 <td>{{$cat->sell_price}}</td>
                                                 <td>{{$cat->quantity_in_stock}}</td>
@@ -46,7 +46,7 @@
 
                                                 {{--                                                            <button href="{{route('categories.show',$cat->id)}}" type="button" class="btn btn-info">                                <i class="fas fa-edit"></i>--}}
                                                 {{--                                                            </button>--}}
-                                                <td><a  href="products-edit/{{$cat->id}}" class="btn btn-dark btn-sm">edit</a></td>
+                                                <td><a  href="{{route('products.show',$cat->id)}}" class="btn btn-dark btn-sm">edit</a></td>
 {{--                                                <td><a href="delete.blade.php">delete</a></td>--}}
                                             </tr>
                                         @endforeach

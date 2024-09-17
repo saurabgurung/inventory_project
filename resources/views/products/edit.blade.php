@@ -52,13 +52,6 @@
                                 </div>
 
 
-
-                                {{--                                <div class="form-group">--}}
-                                {{--                                    <label for="supplier_id">Supplier Id</label>--}}
-                                {{--                                    <input type="text" class="form-control" id="supplier_id" name="supplier_id" placeholder="">--}}
-
-                                {{--                                </div>--}}
-
                                 <div class="form-group">
                                     <label for="cost_price">Cost Price</label>
                                     <input type="text" class="form-control" id="cost_price" name="cost_price" placeholder="Enter you the cost price" value="{{ old('cost_price', $products->cost_price) }}">
