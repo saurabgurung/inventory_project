@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\CategoryController;
+use \App\Http\Controllers\SuppliersController;
+use \App\Http\Controllers\ProductController;
+use \App\Http\Controllers\PersonController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -10,27 +14,32 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/categories',[\App\Http\Controllers\CategoryController::class,'create'])->name('categories');
-Route::post('/categories-store',[\App\Http\Controllers\CategoryController::class,'store'])->name('categories.store');
-Route::get('/categories-index',[\App\Http\Controllers\CategoryController::class,'index'])->name('categories.index');
-Route::get('categories-view/{id}',[\App\Http\Controllers\CategoryController::class,'show'])->name('categories.show');
-Route::put('categories-update/{id}',[\App\Http\Controllers\CategoryController::class,'update'])->name('categories.update');
-Route::delete('/categories-destroy',[\App\Http\Controllers\CategoryController::class,'destroy'])->name('categories.destroy');
+Route::get('/categories',[CategoryController::class,'create'])->name('categories');
+Route::post('/categories-store',[CategoryController::class,'store'])->name('categories.store');
+Route::get('/categories-index',[CategoryController::class,'index'])->name('categories.index');
+Route::get('categories-view/{id}',[CategoryController::class,'show'])->name('categories.show');
+Route::put('categories-update/{id}',[CategoryController::class,'update'])->name('categories.update');
+Route::delete('/categories-destroy/{id}',[CategoryController::class,'destroy'])->name('categories.destroy');
 
 
-Route::get('/suppliers',[\App\Http\Controllers\SuppliersController::class,'create'])->name('suppliers');
-Route::post('/suppliers-store',[\App\Http\Controllers\SuppliersController::class,'store'])->name('suppliers.store');
-Route::get('/suppliers-index',[\App\Http\Controllers\SuppliersController::class,'index'])->name('suppliers.index');
+Route::get('/suppliers',[SuppliersController::class,'create'])->name('suppliers');
+Route::post('/suppliers-store',[SuppliersController::class,'store'])->name('suppliers.store');
+Route::get('/suppliers-index',[SuppliersController::class,'index'])->name('suppliers.index');
+Route::get('suppliers-view/{id}',[SuppliersController::class,'show'])->name('suppliers.show');
+Route::put('/suppliers-update/{id}',[SuppliersController::class,'update'])->name('suppliers.update');
+Route::delete('/suppliers-destroy/{id}',[SuppliersController::class,'destroy'])->name('suppliers.destroy');
+
+Route::get('/person',[PersonController::class,'create'])->name('person');
+Route::post('/person-store',[PersonController::class,'store'])->name('person.store');
+Route::get('/person-index',[PersonController::class,'index'])->name('person.index');
 
 
-Route::get('/person',[\App\Http\Controllers\PersonController::class,'create'])->name('person');
-Route::post('/person-store',[\App\Http\Controllers\PersonController::class,'store'])->name('person.store');
-Route::get('/person-index',[\App\Http\Controllers\PersonController::class,'index'])->name('person.index');
-
-
-Route::get('/products',[\App\Http\Controllers\ProductController::class,'create'])->name('products');
-Route::post('/products-store',[\App\Http\Controllers\ProductController::class,'store'])->name('products.store');
-Route::get('/products-index',[\App\Http\Controllers\ProductController::class,'index'])->name('products.index');
+Route::get('/products',[ProductController::class,'create'])->name('products');
+Route::post('/products-store',[ProductController::class,'store'])->name('products.store');
+Route::get('/products-index',[ProductController::class,'index'])->name('products.index');
+Route::get('/products-edit/{id}',[ProductController::class,'edit'])->name('products.edit');
+Route::put('/products-update/{id}',[ProductController::class,'update'])->name('products.update');
+Route::delete('/products-destroy',[ProductController::class,'destroy'])->name('products.destroy');
 
 
 Route::get('/transactions',[\App\Http\Controllers\TransactionController::class,'create'])->name('transactions');

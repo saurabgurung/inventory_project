@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductStoreRequest;
+use App\Models\Categories;
 use App\Models\Products;
+use App\Models\Suppliers;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -13,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('products.index');
+        $data = Products::all();
+        return view('products.index',compact('data'));
     }
 
     /**
@@ -21,8 +24,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $data= Products::all();
-        return view('products.create');
+        $categories=Categories::all()->pluck('category_name','id');
+        return view('products.create',compact('categories'));
     }
 
     /**
@@ -30,7 +33,59 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $data=Products::create([
+
+
+        try {
+            $data=Products::create([
+                'product_name'=>$request->product_name,
+                'description'=>$request->description,
+                'category_id'=>$request->category_id,
+//            'supplier_id'=>$request->supplier_id,
+                'cost_price'=>$request->cost_price,
+                'sell_price'=>$request->sell_price,
+                'quantity_in_stock'=>$request->quantity
+            ]);
+            if ($data){
+                return redirect()->route('products.index')->with('success','Product created successfully');
+            }
+
+        }
+        catch (\Exception $exception){
+            dd($exception->getMessage());
+        }
+
+//        else {
+//            return redirect()->back()->with('error','Something went wrong');
+//
+//        }
+
+    }
+
+
+    /**
+     * Display the specified resource.
+     */
+    public function show($id)
+    {
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit( $id)
+    {
+        $products=Products::find($id);
+        return view('products.edit',compact('products'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $products=Products::find($request->id);
+        $products->update([
             'product_name'=>$request->product_name,
             'description'=>$request->description,
             'category_id'=>$request->category_id,
@@ -39,46 +94,16 @@ class ProductController extends Controller
             'sell_price'=>$request->sell_price,
             'quantity_in_stock'=>$request->quantity_in_stock
         ]);
-        if ($data){
-            return redirect()->route('products.index')->with('success','Product created successfully');
-        }
-        else {
-            return redirect()->back()->with('error','Something went wrong');
-
-        }
-
-    }
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+        return redirect()->route('products.index')->with('success','Product updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( $id)
     {
-        //
+        $products=Products::findOrFail($id);
+        $products->delete();
+        return redirect()->route('products.index')->with('success','Product deleted successfully');
     }
 }

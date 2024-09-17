@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CategoriesStoreRequest;
 use App\Models\Categories;
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -61,7 +62,6 @@ class CategoryController extends Controller
         $categories=Categories::find($id);
 
         return view('categories.edit',compact('categories'));
-//        dd('data',$Catagory);
         //
     }
 
@@ -71,7 +71,7 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+//        return redirect('suppliers.edit');
     }
 
     /**
@@ -80,23 +80,24 @@ class CategoryController extends Controller
     public function update(Request $request)
     {
 
-        $categories=Categories::find($request->id);
+        $categories=Categories::find($request-> id);
 
         $categories->update([
             'category_name'=>$request->category_name,
             'description'=>$request->description
             ]);
-        return redirect()->route('categories.index')->with('success', 'Item updated successfully.');
+        return redirect()->route('categories.index')->with('success', 'categories updated successfully.');
     }
 
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Categories $categories)
+    public function destroy($id)
     {
+        $categories= Categories::findOrFail($id);
         $categories->delete();
 
-        return redirect()->route('categories.index')->with('success', 'Item deleted successfully.');
+        return redirect()->route('categories.index')->with('success', 'categories deleted successfully.');
     }
 }

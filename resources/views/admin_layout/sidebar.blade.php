@@ -47,8 +47,7 @@
                         <p>
                             Categories
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
-                        </p>
+                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
@@ -72,8 +71,7 @@
                         <p>
                             Suppliers
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
-                        </p>
+                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
@@ -98,8 +96,7 @@
                         <p>
                             Users
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
-                        </p>
+                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
@@ -124,8 +121,7 @@
                         <p>
                             Products
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
-                        </p>
+                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
@@ -149,8 +145,7 @@
                         <p>
                             Transactions
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
-                        </p>
+                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
@@ -175,8 +170,7 @@
                         <p>
                             Orders
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
-                        </p>
+                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
@@ -201,8 +195,7 @@
                         <p>
                             Order Products
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
-                        </p>
+                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">

@@ -24,7 +24,10 @@
                                             <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column descending" aria-sort="ascending">Supplier's Name</th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Contact Number</th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Email</th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Address</th></tr>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Address</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Edit</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Delete</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
                                         <tr class="odd">
@@ -35,6 +38,12 @@
                                                 <td>{{$cat->contact_number}}</td>
                                                 <td>{{$cat->email}}</td>
                                                 <td>{{$cat->address}}</td>
+{{--                                                <td><a  href="{{route('suppliers.edit',$cat->id)}}" class="btn btn-dark btn-sm">edit</a></td>--}}
+
+                                                <td><a  href="{{route('suppliers.show',$cat->id)}}" class="btn btn-dark btn-sm">edit</a></td>
+                                                <td><a href="delete.blade.php">delete</a></td>
+                                            </tr>
+
                                         @endforeach
                                         </tbody>
                                         <tfoot>

@@ -28,7 +28,7 @@ class ProductStoreRequest extends FormRequest
             'product_name' => 'required|string',
             'description' => 'required|string',
             'category_id' => 'required',
-            'supplier_id' => 'required',
+//            'supplier_id' => 'required',
         ];
     }
 }

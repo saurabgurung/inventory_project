@@ -34,10 +34,11 @@
 
                                                         <td>{{$cat->category_name}}</td>
                                                         <td>{{$cat->description}}</td>
-                                                        <td>
+
+
 {{--                                                            <button href="{{route('categories.show',$cat->id)}}" type="button" class="btn btn-info">                                <i class="fas fa-edit"></i>--}}
 {{--                                                            </button>--}}
-                                                            <a  href="{{route('categories.show',$cat->id)}}">edit</a></td>
+                                                        <td><a  href="{{route('categories.show',$cat->id)}}" class="btn btn-dark btn-sm">edit</a></td>
                                                         <td><a href="delete.blade.php">delete</a></td>
                                                     </tr>
                                                 @endforeach

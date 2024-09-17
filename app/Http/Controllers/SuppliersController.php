@@ -31,7 +31,6 @@ class SuppliersController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
 
         $data = Suppliers::create([
             'supplier_name'=> $request->supplier_name,
@@ -48,26 +47,38 @@ class SuppliersController extends Controller
 
     /**
      * Display the specified resource.
-     */
-    public function show(string $id)
+//     */
+    public function show($id)
     {
-        //
+        $suppliers=Suppliers::find($id);
+            return view('suppliers.edit', compact('suppliers'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+
+//        $suppliers=Suppliers::find($id);
+//        return view('suppliers.edit', compact('suppliers'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+//        dd($request->all());
+        $suppliers =Suppliers::find($request->id);
+        $suppliers->update([
+            'supplier_name'=>$request->supplier_name,
+            'contact_number'=>$request->contact_name,
+            'email'=>$request->email,
+            'address'=>$request->address
+
+        ]);
+        return redirect()->Route('suppliers.index')->with('success', 'supplier is successfully updated ');
     }
 
     /**
@@ -75,6 +86,10 @@ class SuppliersController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $suppliers= suppliers::findOrFail($id);
+        $suppliers->delete();
+
+        return redirect()->route('suppliers.index')->with('success', 'suppliers deleted successfully.');
+
     }
 }

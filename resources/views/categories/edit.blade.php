@@ -17,7 +17,7 @@
                         <form action="{{route('categories.update',$categories->id)}}" method="post">
                             @csrf
                             @method('PUT')
-                            <input type="hidden" class="form-control" id="category_name" name="id"  value="{{ ( $categories->id) }}">
+                            <input type="hidden" class="form-control" id="id" name="id"  value="{{ ( $categories->id) }}">
 
                             <div class="card-body">
                                 <div class="form-group">
