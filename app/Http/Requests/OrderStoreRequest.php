@@ -27,9 +27,7 @@ class OrderStoreRequest extends FormRequest
             'client_contact'=> 'required|string',
             'product_id'=> 'required|integer',
             'total_amount'=> 'required|integer',
-            'discount'=> 'required|integer',
-            'grand_total'=> 'required|integer',
-            'paid'=> 'required|integer',
+            'quantity'=> 'required|integer',
             'payment_type'=> 'required|string',
             'payment_status'=> 'required|string',
         ];

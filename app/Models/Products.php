@@ -16,7 +16,6 @@ class Products extends Model
         'category_id',
         'brands_id',
         'rate',
-//        'sell_price',
         'quantity_in_stock',
         'status'
 

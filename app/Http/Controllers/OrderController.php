@@ -28,6 +28,8 @@ class OrderController extends Controller
 
     }
 
+
+
     /**
      * Store a newly created resource in storage.
      */
@@ -40,9 +42,7 @@ class OrderController extends Controller
                 'client_contact' => $request->client_contact,
                 'product_id' => $request->product_id,
                 'total_amount' => $request->total_amount,
-                'discount' => $request->discount,
-                'grand_total' => $request->grand_total,
-                'paid' => $request->paid,
+                'quantity' => $request->quantity,
                 'payment_type' => $request->payment_type,
                 'payment_status' => $request->payment_status
             ]);

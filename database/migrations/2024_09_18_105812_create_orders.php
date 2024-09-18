@@ -18,10 +18,8 @@ return new class extends Migration
             $table->string('client_contact', 255);  // Client contact
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
+            $table->integer('quantity');
             $table->string('total_amount', 255);  //Total amount
-            $table->string('discount', 255);  //Discount
-            $table->string('grand_total', 255);  //Grand total
-            $table->string('paid', 255);
             $table->integer('payment_type');  // Payment type (could be 1 for cash, 2 for card, etc.)
             $table->integer('payment_status');
             $table->timestamps();

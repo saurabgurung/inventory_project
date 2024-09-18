@@ -7,10 +7,10 @@
             <div class="row">
                 <!-- left column -->
                 <div class="col-md-6">
-                    <a href="{{route('categories.index')}}">
-                        <button class="btn btn-outline-dark mb-2 "  >Manage List</button>
+                        <a href="{{route('categories.index')}}">
+                            <button class="btn btn-outline-dark mb-2 "  >Manage List</button>
 
-                    </a>
+                        </a>
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">

@@ -38,8 +38,7 @@ Route::get('/products-index',[ProductController::class,'index'])->name('products
 Route::get('/products-view/{id}',[ProductController::class,'show'])->name('products.show');
 Route::put('/products-update/{id}',[ProductController::class,'update'])->name('products.update');
 Route::delete('/products-destroy',[ProductController::class,'destroy'])->name('products.destroy');
-
-
+// web.php
 
 Route::get('/orders',[OrderController::class,'create'])->name('orders');
 Route::post('/orders-store',[OrderController::class,'store'])->name('orders.store');

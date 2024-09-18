@@ -16,9 +16,7 @@ class Orders extends Model
         'client_contact',
       'product_id',
         'total_amount',
-        'discount',
-        'grand_total',
-        'paid',
+        'quantity',
         'payment_type',
         'payment_status'
     ];
