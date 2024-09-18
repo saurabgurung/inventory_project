@@ -36,22 +36,44 @@
                                             <input type="text" class="form-control" id="client_contact" name="client_contact" placeholder="Enter client contact" required autocomplete="off">
                                         </div>
 
+
+
+<!--                                            <div class="form-group">-->
+<!--                                                <label for="product_id">product</label>-->
+<!--                                                <select name="product_id" id="product_id" class="form-control">-->
+<!--                                                    <option> Select Options</option>-->
+<!--                                                    @foreach ( $products as $id => $product )-->
+<!--                                                        <option value="{{ $id }}">{{ $product['product_name'] }}</option>-->
+<!--                                                    @endforeach-->
+<!--                                                </select>-->
+<!--                                                @error('category_id')-->
+<!--                                                <p class="text-danger">  The product is a required filed</p>-->
+<!--                                                @enderror-->
+<!--                                            </div>-->
+<!--                                            <div class="mb-3">-->
+<!--                                                <label for="rate" class="form-label">Rate</label>-->
+<!--                                                <input type="number" step="0.01" class="form-control" id="rate" name="rate" placeholder="Enter rate" required value="@foreach( $products as $id => $product) {{$products}}@endforeach">-->
+<!--                                            </div>-->
+
                                             <div class="form-group">
-                                                <label for="product_id">product</label>
+                                                <label for="product_id">Product</label>
                                                 <select name="product_id" id="product_id" class="form-control">
-                                                    <option> Select Options</option>
-                                                    @foreach ( $products as $id => $product )
-                                                        <option value="{{ $id }}">{{ $product }}</option>
+                                                    <option>Select Options</option>
+                                                    @foreach ($products as $product)
+                                                    <option value="{{ $product['id'] }}" data-rate="{{ $product['rate'] }}">
+                                                        {{ $product['product_name'] }}
+                                                    </option>
                                                     @endforeach
                                                 </select>
                                                 @error('category_id')
-                                                <p class="text-danger">  The product is a required filed</p>
+                                                <p class="text-danger">The product is a required field</p>
                                                 @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label for="rate" class="form-label">Rate</label>
-                                                <input type="number" step="0.01" class="form-control" id="rate" name="rate" placeholder="Enter rate" required value="@foreach( $products as $id => $product) {{$products}}@endforeach">
+                                                <input type="number" step="0.01" class="form-control" id="rate" name="rate" placeholder="Enter rate" required value="">
                                             </div>
+
 
 
                                         </div>
@@ -140,6 +162,23 @@
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>
+
+@endsection
+
+
+@section('script')
+<script>
+    document.getElementById('product_id').addEventListener('change', function() {
+        // Get the selected option
+        var selectedOption = this.options[this.selectedIndex];
+
+        // Get the rate from the data-rate attribute
+        var rate = selectedOption.getAttribute('data-rate');
+
+        // Set the rate input value
+        document.getElementById('rate').value = rate;
+    });
+</script>
 
 @endsection
 

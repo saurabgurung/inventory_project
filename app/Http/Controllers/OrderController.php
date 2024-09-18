@@ -23,7 +23,8 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $products = Products::all()->pluck('product_name','rate', 'id');
+        $products = Products::select('product_name', 'rate', 'id')->get();
+
         return view('orders.create', compact('products'));
 
     }
