@@ -8,7 +8,7 @@
                 <!-- left column -->
                 <div class="col-md-6">
                     <a href="{{route('brands.index')}}">
-                        <button class="btn btn-primary mb-2 "  >List</button>
+                        <button class="btn btn-outline-dark mb-2 "  >Manage List</button>
 
                     </a>
                     <!-- general form elements -->
@@ -23,7 +23,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="category_name">Brand Name</label>
-                                    <input type="text" class="form-control" id="brand_name" name="brand_name" placeholder="Enter brand name">
+                                    <input type="text" class="form-control" id="brand_name" name="brand_name" placeholder="Enter brand name" autocomplete="off">
                                     @error('brand_name')
                                     <p class="text-danger">this is required</p>
                                     @enderror

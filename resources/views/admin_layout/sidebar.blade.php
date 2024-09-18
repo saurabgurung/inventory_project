@@ -17,19 +17,7 @@
             </div>
         </div>
 
-        <!-- SidebarSearch Form -->
-{{--        <div class="form-inline">--}}
-{{--            <div class="input-group" data-widget="sidebar-search">--}}
-{{--                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">--}}
-{{--                <div class="input-group-append">--}}
-{{--                    <button class="btn btn-sidebar">--}}
-{{--                        <i class="fas fa-search fa-fw"></i>--}}
-{{--                    </button>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
-        <!-- Sidebar Menu -->
+   <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
@@ -92,29 +80,6 @@
 
 
 
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            Users
-                            <i class="fas fa-angle-left right"></i>
-                         </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('person')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>create</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('person.index')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>List</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
 
 
                 <li class="nav-item">
@@ -141,29 +106,6 @@
                     </ul>
                 </li>
 
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            Transactions
-                            <i class="fas fa-angle-left right"></i>
-                         </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('transactions')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Create</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('transactions.index')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>List</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
 
 
                 <li class="nav-item">
@@ -191,29 +133,6 @@
                 </li>
 
 
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            Order Products
-                            <i class="fas fa-angle-left right"></i>
-                         </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('order_product')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Create</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('order_product.index')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>List</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
 
 
 

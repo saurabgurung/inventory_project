@@ -17,8 +17,13 @@
                         <form action="{{route('products.update',$products->id)}}" method="post">
                             @csrf
                             @method('PUT')
-                            <input type="hidden" class="form-control" id="id" name="id"  value="{{ ( $categories->id) }}">
-                            <input type="hidden" class="form-control" id="id" name="id"  value="{{ ( $brands->id) }}">
+{{--                            <input type="hidden" class="form-control" id="id" name="id"  value="{{ ( $categories->id) }}">--}}
+{{--                            <input type="hidden" class="form-control" id="id" name="id"  value="{{ ( $brands->id) }}">--}}
+{{--                            <!-- For categories -->--}}
+{{--                            <input type="hidden" class="form-control" id="category_id" name="category_id" value="{{ $categories->id }}">--}}
+
+                            <!-- For brands -->
+{{--                            <input type="hidden" class="form-control" id="brand_id" name="brand_id" value="{{ $brands->id }}">--}}
 
                             <div class="card-body">
                                 <div class="form-group">
@@ -37,57 +42,59 @@
                                     @enderror
                                 </div>
 
+{{--                                <div class="form-group">--}}
+{{--                                    <label for="category_id">Category</label>--}}
+
+
+{{--                                    <select name="category_id" id="category_id" class="form-control" >--}}
+{{--                                        <option> Select Options</option>--}}
+{{--                                        @foreach ( $categories as $id => $category )--}}
+{{--                                            <option value="{{ $id }}">{{ $category }}</option>--}}
+{{--                                        @endforeach--}}
+{{--                                    </select>--}}
+{{--                                    @error('category_id')--}}
+{{--                                    <p class="text-danger">  This Category is a required filed</p>--}}
+{{--                                    @enderror--}}
+{{--                                </div>--}}
+
+{{--                                <div class="form-group">--}}
+{{--                                    <label for="brand_id">Category</label>--}}
+
+
+{{--                                    <select name="brand_id" id="brand_id" class="form-control" >--}}
+{{--                                        <option> Select Options</option>--}}
+{{--                                        @foreach ( $brands as $id => $brand )--}}
+{{--                                            <option value="{{ $id }}">{{ $brand }}</option>--}}
+{{--                                        @endforeach--}}
+{{--                                    </select>--}}
+{{--                                    @error('brand_id')--}}
+{{--                                    <p class="text-danger">  This Category is a required filed</p>--}}
+{{--                                    @enderror--}}
+{{--                                </div>--}}
+
+
                                 <div class="form-group">
-                                    <label for="category_id">Category</label>
 
+                                    <label for="transaction_type">Status</label>
 
-                                    <select name="category_id" id="category_id" class="form-control" >
-                                        <option> Select Options</option>
-                                        @foreach ( $categories as $id => $category )
-                                            <option value="{{ $id }}">{{ $category }}</option>
-                                        @endforeach
+                                    <select name="status" id="status" class="form-control" >
+                                        <option value="{{ old('status', $products->status) }}">available</option>
+                                        <option value="{{ old('status', $products->status) }}">not_available</option>
                                     </select>
-                                    @error('category_id')
-                                    <p class="text-danger">  This Category is a required filed</p>
-                                    @enderror
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="brand_id">Category</label>
-
-
-                                    <select name="brand_id" id="brand_id" class="form-control" >
-                                        <option> Select Options</option>
-                                        @foreach ( $brands as $id => $brand )
-                                            <option value="{{ $id }}">{{ $brand }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('brand_id')
-                                    <p class="text-danger">  This Category is a required filed</p>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="cost_price">Brands</label>
-                                    <input type="text" class="form-control" id="cost_price" name="cost_price" placeholder="Enter you the cost price" value="{{ old('cost_price', $products->cost_price) }}">
-                                    @error('cost_price')
+                                    <label for="rate">Rate</label>
+                                    <input type="number" class="form-control" id="rate" name="rate" placeholder="Enter you the selling price" value="{{ old('rate', $products->rate) }}">
+                                    @error('rate')
                                     <p class="text-danger">  This  is a required filed</p>
                                     @enderror
                                 </div>
 
-
                                 <div class="form-group">
-                                    <label for="sell_price">Selling Price</label>
-                                    <input type="text" class="form-control" id="sell_price" name="sell_price" placeholder="Enter you the selling price" value="{{ old('sell_price', $products->sell_price) }}">
-                                    @error('sell_price')
-                                    <p class="text-danger">  This  is a required filed</p>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="quantity">Quantity in Stock</label>
-                                    <input type="text"  class="form-control" id="quantity" name="quantity" placeholder="Enter the quantity in stock" value="{{ old('quantity', $products->quantity) }}">
-                                    @error('quantity')
+                                    <label for="quantity_in_stock">Quantity in Stock</label>
+                                    <input type="text"  class="form-control" id="quantity_in_stock" name="quantity_in_stock" placeholder="Enter the quantity in stock" value="{{ old('quantity_in_stock', $products->quantity_in_stock) }}">
+                                    @error('quantity_in_stock')
                                     <p class="text-danger">  This  is a required filed</p>
                                     @enderror
                                 </div>

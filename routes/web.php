@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\CategoryController;
 use \App\Http\Controllers\ProductController;
-use \App\Http\Controllers\PersonController;
 use \App\Http\controllers\BrandController;
+use \App\Http\Controllers\OrderController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,9 +30,6 @@ Route::put('categories-update/{id}',[CategoryController::class,'update'])->name(
 Route::delete('/categories-destroy/{id}',[CategoryController::class,'destroy'])->name('categories.destroy');
 
 
-Route::get('/person',[PersonController::class,'create'])->name('person');
-Route::post('/person-store',[PersonController::class,'store'])->name('person.store');
-Route::get('/person-index',[PersonController::class,'index'])->name('person.index');
 
 
 Route::get('/products',[ProductController::class,'create'])->name('products');
@@ -43,19 +40,12 @@ Route::put('/products-update/{id}',[ProductController::class,'update'])->name('p
 Route::delete('/products-destroy',[ProductController::class,'destroy'])->name('products.destroy');
 
 
-Route::get('/transactions',[\App\Http\Controllers\TransactionController::class,'create'])->name('transactions');
-Route::post('/transactions-store',[\App\Http\Controllers\TransactionController::class,'store'])->name('transactions.store');
-Route::get('/transactions-index',[\App\Http\Controllers\TransactionController::class,'index'])->name('transactions.index');
 
+Route::get('/orders',[OrderController::class,'create'])->name('orders');
+Route::post('/orders-store',[OrderController::class,'store'])->name('orders.store');
+Route::get('/orders-index',[OrderController::class,'index'])->name('orders.index');
+Route::get('/orders-view/{id}',[OrderController::class,'show'])->name('orders.show');
 
-Route::get('/orders',[\App\Http\Controllers\OrderController::class,'create'])->name('orders');
-Route::post('/orders-store',[\App\Http\Controllers\OrderController::class,'store'])->name('orders.store');
-Route::get('/orders-index',[\App\Http\Controllers\OrderController::class,'index'])->name('orders.index');
-
-
-Route::get('/order_product',[\App\Http\Controllers\Order_ProductController::class,'create'])->name('order_product');
-Route::post('/order_product-store',[\App\Http\Controllers\Order_ProductController::class,'store'])->name('order_product.store');
-Route::get('/order_product-index',[\App\Http\Controllers\Order_ProductController::class,'index'])->name('order_product.index');
 
 
 

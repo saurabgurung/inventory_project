@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Orders;
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -21,7 +23,9 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('orders.create');
+        $products = Products::all()->pluck('product_name','rate', 'id');
+        return view('orders.create', compact('products'));
+
     }
 
     /**
@@ -29,24 +33,34 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $data = Orders::create([
-            'order_date'=> $request->order_date,
-            'total_amount'=>$request->total_amount,
-            'status'=>$request->status
-        ]);
-        if ($data){
-            return redirect()->Route('orders.index')->with('success','Order created successfully');
-        }else{
-            return redirect()->back()->with('error','Something went wrong');
-        }
-    }
+        try {
+            $data = Products::create([
+                'order_date' => $request->order_date,
+                'client_name' => $request->client_name,
+                'client_contact' => $request->client_contact,
+                'product_id' => $request->product_id,
+                'total_amount' => $request->total_amount,
+                'discount' => $request->discount,
+                'grand_total' => $request->grand_total,
+                'paid' => $request->paid,
+                'payment_type' => $request->payment_type,
+                'payment_status' => $request->payment_status
+            ]);
+            if ($data) {
+                return redirect()->route('orders.index')->with('success', 'order created successfully');
+            }
+        }  catch (\Exception $exception){
+            dd($exception->getMessage());
+
+    }}
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        $orders=Orders::find($id);
+        return view('orders.edit',compact('orders'));
     }
 
     /**

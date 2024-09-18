@@ -6,7 +6,11 @@
         <div class="container-fluid">
             <div class="row">
                 <!-- left column -->
-                <div class="col-md-9">
+                <div class="col-md-7">
+                    <a href="{{route('categories')}}">
+                        <button class="btn btn-outline-success mb-2 "  >+ add categories </button>
+
+                    </a>
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
@@ -17,9 +21,6 @@
 
                         <div class="card-body">
                             <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dt-buttons btn-group flex-wrap">
-{{--                                            <label>Search:--}}
-{{--                                                <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1">--}}
-{{--                                            </label>--}}
                                         </div></div></div><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
                                             <thead>
                                             <tr>
@@ -70,7 +71,7 @@
                     </div>
 
                 </div>
-            </div>
+{{--            </div>--}}
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>

@@ -49,7 +49,9 @@ class ProductController extends Controller
                 'category_id'=>$request->category_id,
                 'brands_id'=>$request->brands_id,
                 'rate'=>$request->rate,
-                'quantity_in_stock'=>$request->quantity
+                'quantity_in_stock'=>$request->quantity,
+                'status'=>$request->status
+
             ]);
             if ($data){
                 return redirect()->route('products.index')->with('success','Product created successfully');
@@ -94,11 +96,8 @@ class ProductController extends Controller
         $products->update([
             'product_name'=>$request->product_name,
             'description'=>$request->description,
-            'category_id'=>$request->category_id,
-            'brands_id'=>$request->brands_id,
             'rate'=>$request->rate,
             'status'=>$request->status,
-//            'sell_price'=>$request->sell_price,
             'quantity_in_stock'=>$request->quantity_in_stock
         ]);
         return redirect()->route('products.index')->with('success','Product updated successfully');

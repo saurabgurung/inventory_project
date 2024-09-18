@@ -12,8 +12,14 @@ class Orders extends Model
     protected $fillable=[
       'id',
       'order_date',
-      'total_amount',
-      'status',
-
+      'client_name',
+        'client_contact',
+      'product_id',
+        'total_amount',
+        'discount',
+        'grand_total',
+        'paid',
+        'payment_type',
+        'payment_status'
     ];
 }

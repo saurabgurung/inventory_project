@@ -9,7 +9,7 @@
                 <!-- left column -->
                 <div class="col-md-6">
                     <a href="{{route('products.index')}}">
-                        <button class="btn btn-primary mb-2 "  >List</button>
+                        <button class="btn btn-outline-dark mb-2 "  >Manage List</button>
 
                     </a>
                     <!-- general form elements -->
@@ -24,7 +24,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="product_name">Product Name</label>
-                                    <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product's name">
+                                    <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product's name" autocomplete="off">
 
                                     @error('product_name')
                                     <p>this field is required</p>
@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Description</label>
-                                    <input type="text" class="form-control" id="description" name="description" placeholder="Enter product description">
+                                    <input type="text" class="form-control" id="description" name="description" placeholder="Enter product description" autocomplete="off">
                                     @error('description')
                                     <p>this field is required</p>
                                     @enderror
@@ -68,7 +68,7 @@
 
                                 <div class="form-group">
                                     <label for="rate">Rate</label>
-                                    <input type="text" class="form-control" id="rate" name="rate" placeholder="Enter the Rate">
+                                    <input type="text" class="form-control" id="rate" name="rate" placeholder="Enter the Rate" autocomplete="off">
                                     @error('rate')
                                     <p class="text-danger">  This  is a required filed</p>
                                     @enderror
@@ -79,14 +79,14 @@
                                     <label for="transaction_type">Status</label>
 
                                     <select name="status" id="status" class="form-control">
-                                        <option value="available">available</option>
+                                        <option value="available" selected>available</option>
                                         <option value="not_available">not_available</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="quantity">Quantity</label>
-                                    <input type="text"  class="form-control" id="quantity" name="quantity" placeholder="Enter the quantity in stock">
+                                    <input type="text"  class="form-control" id="quantity" name="quantity" placeholder="Enter the quantity in stock" autocomplete="off">
                                     @error('quantity')
                                     <p class="text-danger">  This  is a required filed</p>
                                     @enderror

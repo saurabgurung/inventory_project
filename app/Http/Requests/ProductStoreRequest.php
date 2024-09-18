@@ -29,6 +29,7 @@ class ProductStoreRequest extends FormRequest
             'description' => 'required|string',
             'category_id' => 'required',
             'brands_id' => 'required',
+            'status' => 'required',
 
 //            'supplier_id' => 'required',
         ];

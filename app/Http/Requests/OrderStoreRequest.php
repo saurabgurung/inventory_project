@@ -23,8 +23,15 @@ class OrderStoreRequest extends FormRequest
     {
         return [
             'order_date' => 'required|date',
-            'total_amount' => 'required|numeric',
-            'status' => 'required|in:pending,delivered,cancelled',
+            'client_name'=> 'required|string',
+            'client_contact'=> 'required|string',
+            'product_id'=> 'required|integer',
+            'total_amount'=> 'required|integer',
+            'discount'=> 'required|integer',
+            'grand_total'=> 'required|integer',
+            'paid'=> 'required|integer',
+            'payment_type'=> 'required|string',
+            'payment_status'=> 'required|string',
         ];
     }
 }

@@ -17,7 +17,8 @@ class Products extends Model
         'brands_id',
         'rate',
 //        'sell_price',
-        'quantity_in_stock'
+        'quantity_in_stock',
+        'status'
 
     ];
 }
