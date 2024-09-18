@@ -6,11 +6,7 @@
         <div class="container-fluid">
             <div class="row">
                 <!-- left column -->
-                <div class="col-md-9">
-                    <a href="{{route('orders.index')}}">
-                        <button class="btn btn-outline-dark mb-2 "  >Manage List</button>
-
-                    </a>
+                <div class="col-md-10">
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
@@ -40,28 +36,47 @@
                                             <input type="text" class="form-control" id="client_contact" name="client_contact" placeholder="Enter client contact" required autocomplete="off">
                                         </div>
 
+
+
+<!--                                            <div class="form-group">-->
+<!--                                                <label for="product_id">product</label>-->
+<!--                                                <select name="product_id" id="product_id" class="form-control">-->
+<!--                                                    <option> Select Options</option>-->
+<!--                                                    @foreach ( $products as $id => $product )-->
+<!--                                                        <option value="{{ $id }}">{{ $product['product_name'] }}</option>-->
+<!--                                                    @endforeach-->
+<!--                                                </select>-->
+<!--                                                @error('category_id')-->
+<!--                                                <p class="text-danger">  The product is a required filed</p>-->
+<!--                                                @enderror-->
+<!--                                            </div>-->
+<!--                                            <div class="mb-3">-->
+<!--                                                <label for="rate" class="form-label">Rate</label>-->
+<!--                                                <input type="number" step="0.01" class="form-control" id="rate" name="rate" placeholder="Enter rate" required value="@foreach( $products as $id => $product) {{$products}}@endforeach">-->
+<!--                                            </div>-->
+
                                             <div class="form-group">
-                                                <label for="product_id">product</label>
+                                                <label for="product_id">Product</label>
                                                 <select name="product_id" id="product_id" class="form-control">
-                                                    <option> Select Options</option>
-                                                    @foreach ( $products as $id => $product )
-                                                        <option value="{{ $id }}">{{ $product }}</option>
+                                                    <option>Select Options</option>
+                                                    @foreach ($products as $product)
+                                                    <option value="{{ $product['id'] }}" data-rate="{{ $product['rate'] }}">
+                                                        {{ $product['product_name'] }}
+                                                    </option>
                                                     @endforeach
                                                 </select>
                                                 @error('category_id')
-                                                <p class="text-danger">  The product is a required filed</p>
+                                                <p class="text-danger">The product is a required field</p>
                                                 @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label for="rate" class="form-label">Rate</label>
-                                                <input type="number" step="0.01" class="form-control" id="rate" name="rate" placeholder="" required >
+                                                <input type="number" step="0.01" class="form-control" id="rate" name="rate" placeholder="$$$" required value="" readonly>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="quantity" class="form-label">Quantity</label>
-                                                <input type="number" step="0.01" class="form-control" id="quantity" name="quantity" placeholder="Enter the quantity" required >
+                                                <input type="number" step="0.01" class="form-control" id="quantity" name="quantity" placeholder="Enter quantity" required value="" >
                                             </div>
-
-
 
 
                                         </div>
@@ -69,8 +84,7 @@
 
 
 
-                                    <div class="col-md-6 bg-gradient-lightblue p-3">
-                                        <!-- VAT -->
+                                    <div class="col-md-6  p-3">
 
                                         <!-- Total Amount -->
                                         <div class="mb-3">
@@ -79,11 +93,16 @@
                                         </div>
 
 
+                                    <!-- Second Column -->
+                                    <div class="col-md-6">
+                                        <!-- Discount -->
+
+
 
 
                                         <!-- Payment Type -->
                                         <div class="mb-3">
-                                            <label for="payment_type" class="form-label">Payment Type</label><br>
+                                            <label for="payment_type" class="form-label">Payment Type</label>
                                             <select class="form-select" id="payment_type" name="payment_type" required autocomplete="off">
                                                 <option value="">Select payment type</option>
                                                 <option value="1">Cash</option>
@@ -93,7 +112,7 @@
 
                                         <!-- Payment Status -->
                                         <div class="mb-3">
-                                            <label for="payment_status" class="form-label">Payment Status</label><br>
+                                            <label for="payment_status" class="form-label">Payment Status</label>
                                             <select class="form-select" id="payment_status" name="payment_status" required autocomplete="off">
                                                 <option value="">Select payment status</option>
                                                 <option value="1">Paid</option>
@@ -107,6 +126,7 @@
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit Order</button>
                             </div>
+                                </div>
                         </form>
 
                     </div>
@@ -126,6 +146,18 @@
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>
+
+@endsection
+
+
+@section('script')
+<script>
+    document.getElementById('product_id').addEventListener('change', function() {
+        var selectedOption = this.options[this.selectedIndex];
+        var rate = selectedOption.getAttribute('data-rate');
+        document.getElementById('rate').value = rate;
+    });
+</script>
 
 @endsection
 
