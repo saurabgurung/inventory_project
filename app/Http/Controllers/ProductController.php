@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductStoreRequest;
+use App\Models\Brands;
 use App\Models\Categories;
 use App\Models\Products;
-use App\Models\Suppliers;
+//use App\Models\Suppliers;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -24,9 +25,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories=Categories::all()->pluck('category_name','id');
-        return view('products.create',compact('categories'));
+        $categories = Categories::all()->pluck('category_name', 'id');
+        $brands = Brands::all()->pluck('brand_name', 'id');
+
+        // Pass both 'categories' and 'brands' to the view
+        return view('products.create', compact('categories', 'brands'));
     }
+
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -40,9 +47,8 @@ class ProductController extends Controller
                 'product_name'=>$request->product_name,
                 'description'=>$request->description,
                 'category_id'=>$request->category_id,
-//            'supplier_id'=>$request->supplier_id,
-                'cost_price'=>$request->cost_price,
-                'sell_price'=>$request->sell_price,
+                'brands_id'=>$request->brands_id,
+                'rate'=>$request->rate,
                 'quantity_in_stock'=>$request->quantity
             ]);
             if ($data){
@@ -89,9 +95,10 @@ class ProductController extends Controller
             'product_name'=>$request->product_name,
             'description'=>$request->description,
             'category_id'=>$request->category_id,
-            'supplier_id'=>$request->supplier_id,
-            'cost_price'=>$request->cost_price,
-            'sell_price'=>$request->sell_price,
+            'brands_id'=>$request->brands_id,
+            'rate'=>$request->rate,
+            'status'=>$request->status,
+//            'sell_price'=>$request->sell_price,
             'quantity_in_stock'=>$request->quantity_in_stock
         ]);
         return redirect()->route('products.index')->with('success','Product updated successfully');

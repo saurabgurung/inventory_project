@@ -11,6 +11,6 @@ class Categories extends Model
     use HasFactory, softDeletes;
     protected $fillable=[
         'category_name',
-        'description'
+//        'description'
     ];
 }

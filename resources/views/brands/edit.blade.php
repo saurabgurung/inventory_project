@@ -7,34 +7,33 @@
             <div class="row">
                 <!-- left column -->
                 <div class="col-md-6">
-                    <a href="{{route('categories.index')}}">
-                        <button class="btn btn-primary mb-2 "  >List</button>
-
-                    </a>
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Categories</h3>
+                            <h3 class="card-title">Brand</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{route('categories.store')}}" method="post">
+                        <form action="{{route('brands.update',$brands->id)}}" method="post">
                             @csrf
+                            @method('PUT')
+                            <input type="hidden" class="form-control" id="id" name="id"  value="{{ ( $brands->id) }}">
+
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="category_name">Category Name</label>
-                                    <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Enter category name">
-                                    @error('category_name')
-                                    <p class="text-danger">thi is required</p>
+                                    <label for="brand_name">Brand Name</label>
+                                    <input type="text" class="form-control" id="brand_name" name="brand_name" placeholder="Enter brand name" value="{{ old('brand_name', $brands->brand_name) }}">
+                                    @error('brand_name')
+                                    <p class="text-danger">this is required</p>
                                     @enderror
 
                                 </div>
 
-               </div>
+                            </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">update</button>
                             </div>
                         </form>
                     </div>

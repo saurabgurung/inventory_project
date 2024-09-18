@@ -14,9 +14,9 @@ class Products extends Model
         'product_name',
         'description',
         'category_id',
-        'supplier_id',
-        'cost_price',
-        'sell_price',
+        'brands_id',
+        'rate',
+//        'sell_price',
         'quantity_in_stock'
 
     ];

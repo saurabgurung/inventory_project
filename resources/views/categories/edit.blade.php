@@ -28,13 +28,7 @@
                                     @enderror
 
                                 </div>
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea type="text" class="form-control" id="description" name="description" placeholder="Product description">{{old('description', $categories->description)}}</textarea>
-                                    @error('description')
-                                    <p class="text-danger">this is required</p>
-                                    @enderror
-                                </div>
+
                             </div>
                             <!-- /.card-body -->
 

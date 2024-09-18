@@ -24,10 +24,14 @@
                                             <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column descending" aria-sort="ascending">Product Name</th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Description</th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Category</th>
-{{--                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Supplier</th>--}}
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Cost Price</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Sell Price</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Quantity In Stock</th></tr>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">brands</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Rate</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th>
+
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Quantity</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Edit</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Delete</th></tr>
+
                                         </thead>
                                         <tbody>
                                         <tr class="odd">
@@ -38,16 +42,16 @@
                                                 <td>{{$cat->product_name}}</td>
                                                 <td>{{$cat->description}}</td>
                                                 <td>{{$cat->category_id}}</td>
-{{--                                                <td>{{$cat->supplier_id}}<  /td>--}}
-                                                <td>{{$cat->cost_price}}</td>
-                                                <td>{{$cat->sell_price}}</td>
+                                                <td>{{$cat->brands_id}}</td>
+                                                <td>{{$cat->rate}}</td>
+                                                <td>{{$cat->status}}</td>
                                                 <td>{{$cat->quantity_in_stock}}</td>
 
 
                                                 {{--                                                            <button href="{{route('categories.show',$cat->id)}}" type="button" class="btn btn-info">                                <i class="fas fa-edit"></i>--}}
                                                 {{--                                                            </button>--}}
-                                                <td><a  href="{{route('products.show',$cat->id)}}" class="btn btn-dark btn-sm">edit</a></td>
-{{--                                                <td><a href="delete.blade.php">delete</a></td>--}}
+                                                <td><a  href="{{route('products.show',$cat->id)}}" class="btn btn-primary btn-sm">edit</a></td>
+                                                <td><a href="delete.blade.php" class="btn btn-danger btn-sm">delete</a></td>
                                             </tr>
                                         @endforeach
                                         </tbody>

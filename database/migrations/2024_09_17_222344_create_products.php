@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('product_name');
-            $table->longText('description');
+            $table->string('description');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->unsignedBigInteger('supplier_id');
-            $table->foreign('supplier_id')->references('id')->on('suppliers');
-            $table->bigInteger('cost_price');
-            $table->bigInteger('sell_price');
+            $table->unsignedBigInteger('brands_id');  // Foreign key must match the type of `brands.id`
+            $table->foreign('brands_id')->references('id')->on('brands');
+            $table->bigInteger('rate');
             $table->integer('quantity_in_stock');
+            $table->string('status')->default('active');
             $table->timestamps();
             $table->softDeletes();
         });

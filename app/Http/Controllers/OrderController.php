@@ -31,7 +31,6 @@ class OrderController extends Controller
     {
         $data = Orders::create([
             'order_date'=> $request->order_date,
-            'supplier_id'=>$request->supplier_id,
             'total_amount'=>$request->total_amount,
             'status'=>$request->status
         ]);

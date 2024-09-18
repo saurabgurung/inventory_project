@@ -40,8 +40,6 @@
 
                                 <div class="form-group">
                                     <label for="category_id">Category</label>
-
-
                                     <select name="category_id" id="category_id" class="form-control">
                                         <option> Select Options</option>
                                     @foreach ( $categories as $id => $category )
@@ -53,32 +51,41 @@
                                     @enderror
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="brands_id">Brand</label>
+                                    <select name="brands_id" id="brands_id" class="form-control">
+                                        <option> Select Options</option>
+                                        @foreach ( $brands as $id => $brand )
+                                            <option value="{{ $id }}">{{ $brand }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('brands_id')
+                                    <p class="text-danger">  This Category is a required filed</p>
+                                    @enderror
+                                </div>
 
 
-{{--                                <div class="form-group">--}}
-{{--                                    <label for="supplier_id">Supplier Id</label>--}}
-{{--                                    <input type="text" class="form-control" id="supplier_id" name="supplier_id" placeholder="">--}}
-
-{{--                                </div>--}}
 
                                 <div class="form-group">
-                                    <label for="cost_price">Cost Price</label>
-                                    <input type="text" class="form-control" id="cost_price" name="cost_price" placeholder="Enter you the cost price">
-                                    @error('cost_price')
+                                    <label for="rate">Rate</label>
+                                    <input type="text" class="form-control" id="rate" name="rate" placeholder="Enter the Rate">
+                                    @error('rate')
                                     <p class="text-danger">  This  is a required filed</p>
                                     @enderror
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="sell_price">Selling Price</label>
-                                    <input type="text" class="form-control" id="sell_price" name="sell_price" placeholder="Enter you the selling price">
-                                    @error('sell_price')
-                                    <p class="text-danger">  This  is a required filed</p>
-                                    @enderror
+
+                                    <label for="transaction_type">Status</label>
+
+                                    <select name="status" id="status" class="form-control">
+                                        <option value="available">available</option>
+                                        <option value="not_available">not_available</option>
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="quantity">Quantity in Stock</label>
+                                    <label for="quantity">Quantity</label>
                                     <input type="text"  class="form-control" id="quantity" name="quantity" placeholder="Enter the quantity in stock">
                                     @error('quantity')
                                     <p class="text-danger">  This  is a required filed</p>

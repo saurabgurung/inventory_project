@@ -18,6 +18,7 @@
                             @csrf
                             @method('PUT')
                             <input type="hidden" class="form-control" id="id" name="id"  value="{{ ( $categories->id) }}">
+                            <input type="hidden" class="form-control" id="id" name="id"  value="{{ ( $brands->id) }}">
 
                             <div class="card-body">
                                 <div class="form-group">
@@ -51,9 +52,23 @@
                                     @enderror
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="brand_id">Category</label>
+
+
+                                    <select name="brand_id" id="brand_id" class="form-control" >
+                                        <option> Select Options</option>
+                                        @foreach ( $brands as $id => $brand )
+                                            <option value="{{ $id }}">{{ $brand }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('brand_id')
+                                    <p class="text-danger">  This Category is a required filed</p>
+                                    @enderror
+                                </div>
 
                                 <div class="form-group">
-                                    <label for="cost_price">Cost Price</label>
+                                    <label for="cost_price">Brands</label>
                                     <input type="text" class="form-control" id="cost_price" name="cost_price" placeholder="Enter you the cost price" value="{{ old('cost_price', $products->cost_price) }}">
                                     @error('cost_price')
                                     <p class="text-danger">  This  is a required filed</p>

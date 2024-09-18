@@ -7,37 +7,28 @@
             <div class="row">
                 <!-- left column -->
                 <div class="col-md-6">
+                    <a href="{{route('brands.index')}}">
+                        <button class="btn btn-primary mb-2 "  >List</button>
+
+                    </a>
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Suppliers</h3>
+                            <h3 class="card-title">Brand</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{route('suppliers.store')}}" method="post">
+                        <form action="{{route('brands.store')}}" method="post">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="supplier_name">Supplier Name</label>
-                                    <input type="text" class="form-control" id="supplier_name" name="supplier_name" placeholder="Enter supplier's name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="contact_number">Contact Number</label>
-                                    <input type="number" class="form-control" id="contact_number" name="contact_number" placeholder="Enter your contact Number">
-
+                                    <label for="category_name">Brand Name</label>
+                                    <input type="text" class="form-control" id="brand_name" name="brand_name" placeholder="Enter brand name">
+                                    @error('brand_name')
+                                    <p class="text-danger">this is required</p>
+                                    @enderror
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email">
-
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="address">Address</label>
-                                    <input type="text" class="form-control" id="address" name="address" placeholder="Enter you Temporary Address">
-
-                                </div>
                             </div>
                             <!-- /.card-body -->
 
@@ -64,4 +55,3 @@
     </section>
 
 @endsection
-

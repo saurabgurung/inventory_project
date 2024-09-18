@@ -24,7 +24,7 @@ class CategoriesStoreRequest extends FormRequest
     {
         return [
             'category_name' => 'required',
-            'description' => 'required',
+//            'description' => 'required',
         ];
     }
 }

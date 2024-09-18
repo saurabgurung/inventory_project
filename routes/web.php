@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\CategoryController;
-use \App\Http\Controllers\SuppliersController;
 use \App\Http\Controllers\ProductController;
 use \App\Http\Controllers\PersonController;
+use \App\Http\controllers\BrandController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,6 +14,14 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/brands',[BrandController::class,'create'])->name('brands');
+Route::post('/brands-store',[BrandController::class,'store'])->name('brands.store');
+Route::get('/brands-index',[BrandController::class,'index'])->name('brands.index');
+Route::get('brands-view/{id}',[BrandController::class,'show'])->name('brands.show');
+Route::put('brands-update/{id}',[BrandController::class,'update'])->name('brands.update');
+Route::delete('/brands-destroy/{id}',[BrandController::class,'destroy'])->name('brands.destroy');
+
+
 Route::get('/categories',[CategoryController::class,'create'])->name('categories');
 Route::post('/categories-store',[CategoryController::class,'store'])->name('categories.store');
 Route::get('/categories-index',[CategoryController::class,'index'])->name('categories.index');
@@ -21,13 +29,6 @@ Route::get('categories-view/{id}',[CategoryController::class,'show'])->name('cat
 Route::put('categories-update/{id}',[CategoryController::class,'update'])->name('categories.update');
 Route::delete('/categories-destroy/{id}',[CategoryController::class,'destroy'])->name('categories.destroy');
 
-
-Route::get('/suppliers',[SuppliersController::class,'create'])->name('suppliers');
-Route::post('/suppliers-store',[SuppliersController::class,'store'])->name('suppliers.store');
-Route::get('/suppliers-index',[SuppliersController::class,'index'])->name('suppliers.index');
-Route::get('suppliers-view/{id}',[SuppliersController::class,'show'])->name('suppliers.show');
-Route::put('/suppliers-update/{id}',[SuppliersController::class,'update'])->name('suppliers.update');
-Route::delete('/suppliers-destroy/{id}',[SuppliersController::class,'destroy'])->name('suppliers.destroy');
 
 Route::get('/person',[PersonController::class,'create'])->name('person');
 Route::post('/person-store',[PersonController::class,'store'])->name('person.store');
