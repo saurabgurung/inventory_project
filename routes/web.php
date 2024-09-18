@@ -32,12 +32,12 @@ Route::delete('/categories-destroy/{id}',[CategoryController::class,'destroy'])-
 
 
 
+Route::delete('products-destroy/{id}',[ProductController::class,'destroy'])->name('products.destroy');
 Route::get('/products',[ProductController::class,'create'])->name('products');
 Route::post('/products-store',[ProductController::class,'store'])->name('products.store');
 Route::get('/products-index',[ProductController::class,'index'])->name('products.index');
 Route::get('/products-view/{id}',[ProductController::class,'show'])->name('products.show');
 Route::put('/products-update/{id}',[ProductController::class,'update'])->name('products.update');
-Route::delete('/products-destroy',[ProductController::class,'destroy'])->name('products.destroy');
 
 
 
