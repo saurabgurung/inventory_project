@@ -169,13 +169,8 @@
 @section('script')
 <script>
     document.getElementById('product_id').addEventListener('change', function() {
-        // Get the selected option
         var selectedOption = this.options[this.selectedIndex];
-
-        // Get the rate from the data-rate attribute
         var rate = selectedOption.getAttribute('data-rate');
-
-        // Set the rate input value
         document.getElementById('rate').value = rate;
     });
 </script>
