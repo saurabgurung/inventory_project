@@ -14,7 +14,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $data = Orders::all();
+
+        $data = Orders::with(['products'])->get();
         return view('orders.index',compact('data'));
     }
 
@@ -23,7 +24,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $products = Products::select('product_name', 'rate', 'id')->get();
+        $products = Products::select('product_name', 'rate', 'id', 'quantity_in_stock')->get();
 
         return view('orders.create', compact('products'));
 
@@ -36,8 +37,18 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $data = Products::create([
+
+        $products = Products::findOrFail($request->product_id);
+
+        if ($products->quantity_in_stock < $request->quantity) {
+            return redirect()->back()->with('error', 'Not enough stock available for this product.');
+        }
+
+
+        $products->quantity_in_stock -= $request->quantity;
+        $products->save();
+
+        $data = Orders::create([
                 'order_date' => $request->order_date,
                 'client_name' => $request->client_name,
                 'client_contact' => $request->client_contact,
@@ -47,13 +58,13 @@ class OrderController extends Controller
                 'payment_type' => $request->payment_type,
                 'payment_status' => $request->payment_status
             ]);
-            if ($data) {
                 return redirect()->route('orders.index')->with('success', 'order created successfully');
-            }
-        }  catch (\Exception $exception){
-            dd($exception->getMessage());
 
-    }}
+
+
+    }
+    // select product from request and subtract its quantity in stock
+
 
     /**
      * Display the specified resource.
@@ -77,14 +88,24 @@ class OrderController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $orders=Orders::find($request->id);
+        $orders->update([
+            'order_date' => $request->order_date,
+            'client_name' => $request->client_name,
+            'client_contact' => $request->client_contact,
+            'payment_type' => $request->payment_type,
+            'payment_status' => $request->payment_status
+        ]);
+        return redirect()->route('orders.index')->with('success','Product updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( $id)
     {
-        //
+        $orders=Orders::findOrFail($id);
+        $orders->delete();
+        return redirect()->route('orders.index')->with('success','Product deleted successfully');
     }
 }

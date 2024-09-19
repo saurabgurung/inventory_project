@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row">
                 <!-- left column -->
-                <div class="col-md-7">
+                <div class="col-md-5">
                     <a href="{{route('categories')}}">
                         <button class="btn btn-outline-success mb-2 "  >+ add categories </button>
 
@@ -26,8 +26,8 @@
                                             <tr>
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending">ID</th>
                                                 <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column descending" aria-sort="ascending">Category Name</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Edit</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Delete</th></tr>
+                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Action</th>
+{{--                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Delete</th></tr>--}}
                                             </thead>
                                             <tbody>
                                             <tr class="odd">
@@ -40,10 +40,18 @@
 
 {{--                                                            <button href="{{route('categories.show',$cat->id)}}" type="button" class="btn btn-info">                                <i class="fas fa-edit"></i>--}}
 {{--                                                            </button>--}}
-                                                        <td><a  href="{{route('categories.show',$cat->id)}}" class="btn btn-primary btn-sm">edit</a></td>
                                                         <td>
-                                                            <a href="{{route('categories.destroy',$cat->id)}}" class="btn btn-danger btn-sm">delete</a></td>
-                                                    </tr>
+
+                                                            <a  href="{{route('categories.show',$cat->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt" aria-hidden="true"></i></a>
+
+                                                            <form action="{{route('categories.destroy',$cat->id)}}" method="post" class="d-inline">
+                                                                <input type="hidden" name="_method" value="delete" />
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+                                                            </form>
+                                                        </td>
+                                                         </tr>
                                                 @endforeach
                                             </tbody>
                                             <tfoot>
@@ -73,7 +81,7 @@
                 </div>
 {{--            </div>--}}
             <!-- /.row -->
-        </div><!-- /.container-fluid -->
+            </div><!-- /.container-fluid --></div>
     </section>
 
 @endsection

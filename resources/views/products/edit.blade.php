@@ -93,7 +93,7 @@
 
                                 <div class="form-group">
                                     <label for="quantity_in_stock">Quantity in Stock</label>
-                                    <input type="text"  class="form-control" id="quantity_in_stock" name="quantity_in_stock" placeholder="Enter the quantity in stock" value="{{ old('quantity_in_stock', $products->quantity_in_stock) }}">
+                                    <input type="text"  class="form-control" id="quantity_in_stock" name="quantity_in_stock" placeholder="Enter the quantity in stock" value="{{ old('quantity_in_stock', $products->quantity_in_stock) }}" readonly>
                                     @error('quantity_in_stock')
                                     <p class="text-danger">  This  is a required filed</p>
                                     @enderror

@@ -35,10 +35,10 @@ class CategoryController extends Controller
         $data=Categories::create([
 
             'category_name'=>$request->category_name,
-//            'description'=>$request->description
 
 
         ]);
+
         if ($data){
                 return redirect()->Route('categories.index')->with('success','category created successfully');
         }
@@ -47,6 +47,8 @@ class CategoryController extends Controller
 //
 
         }
+
+
 
         }
 //        $data=Categories::create($request->all());

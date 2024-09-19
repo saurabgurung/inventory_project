@@ -30,21 +30,21 @@ Route::put('categories-update/{id}',[CategoryController::class,'update'])->name(
 Route::delete('/categories-destroy/{id}',[CategoryController::class,'destroy'])->name('categories.destroy');
 
 
-
-
 Route::get('/products',[ProductController::class,'create'])->name('products');
 Route::post('/products-store',[ProductController::class,'store'])->name('products.store');
 Route::get('/products-index',[ProductController::class,'index'])->name('products.index');
 Route::get('/products-view/{id}',[ProductController::class,'show'])->name('products.show');
 Route::put('/products-update/{id}',[ProductController::class,'update'])->name('products.update');
-Route::delete('/products-destroy',[ProductController::class,'destroy'])->name('products.destroy');
-// web.php
+Route::delete('products-destroy/{id}',[ProductController::class,'destroy'])->name('products.destroy');
+
 
 Route::get('/orders',[OrderController::class,'create'])->name('orders');
 Route::post('/orders-store',[OrderController::class,'store'])->name('orders.store');
 Route::get('/orders-index',[OrderController::class,'index'])->name('orders.index');
 Route::get('/orders-view/{id}',[OrderController::class,'show'])->name('orders.show');
+Route::put('/orders-update/{id}',[OrderController::class,'update'])->name('orders.update');
+Route::delete('orders-destroy/{id}',[OrderController::class,'destroy'])->name('orders.destroy');
 
-
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 

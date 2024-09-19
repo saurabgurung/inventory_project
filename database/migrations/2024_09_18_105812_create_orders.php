@@ -20,8 +20,8 @@ return new class extends Migration
             $table->foreign('product_id')->references('id')->on('products');
             $table->integer('quantity');
             $table->string('total_amount', 255);  //Total amount
-            $table->integer('payment_type');  // Payment type (could be 1 for cash, 2 for card, etc.)
-            $table->integer('payment_status');
+            $table->string('payment_type');  // Payment type (could be 1 for cash, 2 for card, etc.)
+            $table->string('payment_status');
             $table->timestamps();
             $table->softDeletes();
         });

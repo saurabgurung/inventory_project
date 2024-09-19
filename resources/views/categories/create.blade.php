@@ -25,7 +25,7 @@
                                     <label for="category_name">Category Name</label>
                                     <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Enter category name" autocomplete="off">
                                     @error('category_name')
-                                    <p class="text-danger">thi is required</p>
+                                    <p class="text-danger">this is required</p>
                                     @enderror
 
                                 </div>

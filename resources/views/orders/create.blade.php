@@ -7,12 +7,17 @@
             <div class="row">
                 <!-- left column -->
                 <div class="col-md-10">
+                    <a href="{{route('orders.index')}}">
+                        <button class="btn btn-outline-dark mb-2 "  >Manage List</button>
+
+                    </a>
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Orders</h3>
                         </div>
                             <form action="{{ route('orders.store') }}" method="post">
+                                @csrf
                                 <div class="row">
                                     <!-- First Column -->
                                     <div class="col-md-6 bg-light p-3">
@@ -38,29 +43,12 @@
 
 
 
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="product_id">product</label>-->
-<!--                                                <select name="product_id" id="product_id" class="form-control">-->
-<!--                                                    <option> Select Options</option>-->
-<!--                                                    @foreach ( $products as $id => $product )-->
-<!--                                                        <option value="{{ $id }}">{{ $product['product_name'] }}</option>-->
-<!--                                                    @endforeach-->
-<!--                                                </select>-->
-<!--                                                @error('category_id')-->
-<!--                                                <p class="text-danger">  The product is a required filed</p>-->
-<!--                                                @enderror-->
-<!--                                            </div>-->
-<!--                                            <div class="mb-3">-->
-<!--                                                <label for="rate" class="form-label">Rate</label>-->
-<!--                                                <input type="number" step="0.01" class="form-control" id="rate" name="rate" placeholder="Enter rate" required value="@foreach( $products as $id => $product) {{$products}}@endforeach">-->
-<!--                                            </div>-->
-
                                             <div class="form-group">
                                                 <label for="product_id">Product</label>
                                                 <select name="product_id" id="product_id" class="form-control">
                                                     <option>Select Options</option>
                                                     @foreach ($products as $product)
-                                                    <option value="{{ $product['id'] }}" data-rate="{{ $product['rate'] }}">
+                                                    <option value="{{ $product['id'] }}" data-rate="{{ $product['rate'] }}" data-quan="{{$product['quantity_in_stock']}}" >
                                                         {{ $product['product_name'] }}
                                                     </option>
                                                     @endforeach
@@ -73,6 +61,12 @@
                                                 <label for="rate" class="form-label">Rate</label>
                                                 <input type="number" step="0.01" class="form-control" id="rate" name="rate" placeholder="$$$" required value="" readonly>
                                             </div>
+
+                                            <div class="mb-3">
+                                                <label for="quantity_in_stock" class="form-label">Available Stock</label>
+                                                <input type="number" class="form-control" id="quantity_in_stock" name="quantity_in_stock" readonly>
+                                            </div>
+
                                             <div class="mb-3">
                                                 <label for="quantity" class="form-label">Quantity</label>
                                                 <input type="number" step="0.01" class="form-control" id="quantity" name="quantity" placeholder="Enter quantity" required value="" >
@@ -105,8 +99,8 @@
                                             <label for="payment_type" class="form-label">Payment Type</label>
                                             <select class="form-select" id="payment_type" name="payment_type" required autocomplete="off">
                                                 <option value="">Select payment type</option>
-                                                <option value="1">Cash</option>
-                                                <option value="2">Esewa</option>
+                                                <option value="cash">Cash</option>
+                                                <option value="esewa">Esewa</option>
                                             </select>
                                         </div>
 
@@ -115,8 +109,8 @@
                                             <label for="payment_status" class="form-label">Payment Status</label>
                                             <select class="form-select" id="payment_status" name="payment_status" required autocomplete="off">
                                                 <option value="">Select payment status</option>
-                                                <option value="1">Paid</option>
-                                                <option value="2">Pending</option>
+                                                <option value="paid">Paid</option>
+                                                <option value="pending">Pending</option>
                                             </select>
                                         </div>
                                     </div>
@@ -128,7 +122,6 @@
                             </div>
                                 </div>
                         </form>
-
                     </div>
                     <!-- /.card -->
 
@@ -152,11 +145,63 @@
 
 @section('script')
 <script>
+
+
+
+    document.getElementById('quantity').addEventListener('input', function() {
+        var quantity_stock = parseFloat(document.getElementById('quantity_in_stock').value);
+        var quantity = parseFloat(document.getElementById('quantity').value);
+
+
+        // Check if quantity exceeds the available stock
+        if (quantity > quantity_stock || quantity < 0) {
+            alert("Quantity exceeds available stock!");
+            this.value = ''; // Clear the input if the entered value is invalid
+        }
+    });
     document.getElementById('product_id').addEventListener('change', function() {
         var selectedOption = this.options[this.selectedIndex];
+        console.log('selectedOption',selectedOption)
+
         var rate = selectedOption.getAttribute('data-rate');
         document.getElementById('rate').value = rate;
+
+        calculateTotal();
+
     });
+
+document.getElementById('product_id').addEventListener('change', function() {
+    var selectedOption = this.options[this.selectedIndex];
+    console.log('selectedOption',selectedOption)
+
+
+    var quantity_in_stock = selectedOption.getAttribute('data-quan');
+    document.getElementById('quantity_in_stock').value = quantity_in_stock;
+
+    calculateTotal();
+
+});
+        document.getElementById('quantity').addEventListener('input', function() {
+            calculateTotal();
+
+    });
+
+
+    function calculateTotal() {
+        var rate = parseFloat(document.getElementById('rate').value);
+        var quantity = parseFloat(document.getElementById('quantity').value);
+
+        if (!isNaN(rate) && !isNaN(quantity)) {
+            document.getElementById('total_amount').value = (rate * quantity).toFixed(2);
+        } else {
+            document.getElementById('total_amount').value = '';
+        }
+
+            // Check if quantity exceeds the available stock
+
+    }
+
+
 </script>
 
 @endsection

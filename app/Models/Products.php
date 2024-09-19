@@ -20,4 +20,13 @@ class Products extends Model
         'status'
 
     ];
+
+
+    public function categories() {
+        return $this->belongsTo(Categories::class, 'category_id');
+    }
+
+    public function brands() {
+        return $this->belongsTo(Brands::class, 'brands_id');
+    }
 }

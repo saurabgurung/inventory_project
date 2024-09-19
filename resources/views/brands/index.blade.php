@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row">
                 <!-- left column -->
-                <div class="col-md-7">
+                <div class="col-md-5">
 
                     <a href="{{route('brands')}}">
                         <button class="btn btn-outline-success mb-2 "  >+ add brand</button>
@@ -28,8 +28,7 @@
                                             <tr>
                                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending">ID</th>
                                                 <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column descending" aria-sort="ascending">Brand Name</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Edit</th>
-                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Delete</th></tr>
+                                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Actions</th>
                                             </thead>
                                             <tbody>
                                             <tr class="odd">
@@ -41,9 +40,17 @@
 
 
 
-                                                        <td><a  href="{{route('brands.show',$cat->id)}}" class="btn btn-primary btn-sm">edit</a></td>
-                                                        <td><a href="delete.blade.php" class="btn btn-danger btn-sm">delete</a></td>
-                                                    </tr>
+                                                        <td>
+
+                                                            <a  href="{{route('brands.show',$cat->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt" aria-hidden="true"></i></a>
+
+                                                            <form action="{{route('brands.destroy',$cat->id)}}" method="post" class="d-inline">
+                                                                <input type="hidden" name="_method" value="delete" />
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+                                                            </form>
+                                                        </td>  </tr>
                                                 @endforeach
                                             </tbody>
                                             <tfoot>

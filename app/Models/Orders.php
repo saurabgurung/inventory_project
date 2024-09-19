@@ -20,4 +20,9 @@ class Orders extends Model
         'payment_type',
         'payment_status'
     ];
+
+    public function products() {
+        return $this->belongsTo(Products::class, 'product_id');
+    }
+
 }

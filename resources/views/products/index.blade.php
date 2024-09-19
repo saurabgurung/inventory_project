@@ -33,8 +33,9 @@
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th>
 
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Quantity</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Edit</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Delete</th></tr>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Actions</th>
+<!--                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Delete</th>-->
+                                        </tr>
 
                                         </thead>
                                         <tbody>
@@ -45,8 +46,9 @@
 
                                                 <td>{{$cat->product_name}}</td>
                                                 <td>{{$cat->description}}</td>
-                                                <td>{{$cat->category_id}}</td>
-                                                <td>{{$cat->brands_id}}</td>
+
+                                                <td>{{$cat->categories->category_name}}</td>
+                                                <td>{{$cat->brands->brand_name}}</td>
                                                 <td>{{$cat->rate}}</td>
                                                 <td>{{$cat->status}}</td>
                                                 <td>{{$cat->quantity_in_stock}}</td>
@@ -54,8 +56,22 @@
 
                                                 {{--                                                            <button href="{{route('categories.show',$cat->id)}}" type="button" class="btn btn-info">                                <i class="fas fa-edit"></i>--}}
                                                 {{--                                                            </button>--}}
-                                                <td><a  href="{{route('products.show',$cat->id)}}" class="btn btn-primary btn-sm">edit</a></td>
-                                                <td><a href="delete.blade.php" class="btn btn-danger btn-sm">delete</a></td>
+                                                <td>
+
+                                                    <a  href="{{route('products.show',$cat->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt" aria-hidden="true"></i></a>
+
+                                                    <form action="{{route('products.destroy',$cat->id)}}" method="post" class="d-inline">
+                                                        <input type="hidden" name="_method" value="delete" />
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+                                                    </form>
+                                                </td>
+
+
+<!--                                                <td>-->
+<!---->
+<!--                                                </td>-->
                                             </tr>
                                         @endforeach
                                         </tbody>
