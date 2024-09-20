@@ -5,6 +5,7 @@ use \App\Http\Controllers\CategoryController;
 use \App\Http\Controllers\ProductController;
 use \App\Http\Controllers\OrderController;
 use \App\Http\Controllers\BrandController;
+use \App\Http\Controllers\ReorderStockController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,6 +14,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Route::get('/brands',[BrandController::class,'create'])->name('brands');
 Route::post('/brands-store',[BrandController::class,'store'])->name('brands.store');
@@ -44,6 +46,9 @@ Route::get('/orders-index',[OrderController::class,'index'])->name('orders.index
 Route::get('/orders-view/{id}',[OrderController::class,'show'])->name('orders.show');
 Route::put('/orders-update/{id}',[OrderController::class,'update'])->name('orders.update');
 Route::delete('orders-destroy/{id}',[OrderController::class,'destroy'])->name('orders.destroy');
+
+Route::get('/reorder_stock-index',[ReorderStockController::class,'index'])->name('reorder_stock.index');
+
 
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 

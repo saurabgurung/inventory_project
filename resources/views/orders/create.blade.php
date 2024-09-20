@@ -38,7 +38,9 @@
                                         <!-- Client Contact -->
                                         <div class="mb-3">
                                             <label for="client_contact" class="form-label">Client Contact</label>
-                                            <input type="text" class="form-control" id="client_contact" name="client_contact" placeholder="Enter client contact" required autocomplete="off">
+                                            <input type="text" class="form-control" id="client_contact" name="client_contact" placeholder="Enter client contact" required autocomplete="off" pattern="98\d{8}">
+                                            <div id="contact_error" style="color: blue; display: none;">Please enter a valid contact number (starting with 98 and containing 10 digits).</div>
+
                                         </div>
 
 
@@ -201,6 +203,27 @@ document.getElementById('product_id').addEventListener('change', function() {
 
     }
 
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('order_date').setAttribute('min', today);
+    document.getElementById('order_date').setAttribute('max', today);
+
+
+    document.getElementById('client_contact').addEventListener('input', function() {
+        const contactField = this;
+        const contactValue = contactField.value;
+        const contactError = document.getElementById('contact_error');
+
+        // Regular expression to check if the contact starts with '98' and is exactly 10 digits
+        const contactPattern = /^98\d{8}$/;
+
+        if (contactPattern.test(contactValue)) {
+            contactField.setCustomValidity('');  // Valid input
+            contactError.style.display = 'none'; // Hide the error message
+        } else {
+            contactField.setCustomValidity('Invalid');  // Invalid input
+            contactError.style.display = 'block';       // Show the error message
+        }
+    });
 
 </script>
 

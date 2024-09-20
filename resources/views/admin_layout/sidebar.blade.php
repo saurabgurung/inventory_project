@@ -23,6 +23,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
+
                     <a href="{{route('home')}}" class="nav-link">
                         <i class="nav-icon fas "></i>
                         <p>DASHBOARD</p>
@@ -31,7 +32,7 @@
 
                 <li class="nav-item">
                     <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
+                        <i class="nav-icon fas fa-box"></i>
                         <p>
                             Categories
                             <i class="fas fa-angle-left right"></i>
@@ -55,7 +56,7 @@
 
                 <li class="nav-item">
                     <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
+                        <i class="nav-icon fas fa-feather"></i>
                         <p>
                             Brand
                             <i class="fas fa-angle-left right"></i>
@@ -84,7 +85,7 @@
 
                 <li class="nav-item">
                     <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
+                        <i class="nav-icon fas fa-shopping-cart"></i>
                         <p>
                             Products
                             <i class="fas fa-angle-left right"></i>
@@ -110,7 +111,7 @@
 
                 <li class="nav-item">
                     <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
+                        <i class="nav-icon fas fa-address-book"></i>
                         <p>
                             Orders
                             <i class="fas fa-angle-left right"></i>
@@ -132,10 +133,28 @@
                     </ul>
                 </li>
 
-                <!-- Sidebar Logout Button -->
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-receipt"></i>
+                        <p>
+                            Re-order
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('reorder_stock.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="nav-icon fas fa-sign-out-alt"></i> <!-- Optional icon -->
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>Logout</p>
                     </a>
 

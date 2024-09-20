@@ -31,6 +31,10 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
+
+        $validatedData = $request->validate([
+            'brand_name' => 'required|max:255',
+        ]);
         $data=Brands::create([
 
             'brand_name'=>$request->brand_name,

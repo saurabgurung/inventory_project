@@ -27,14 +27,14 @@
                                     <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product's name" autocomplete="off">
 
                                     @error('product_name')
-                                    <p>this field is required</p>
+                                    <p class="text-danger">this field is required</p>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Description</label>
                                     <input type="text" class="form-control" id="description" name="description" placeholder="Enter product description" autocomplete="off">
                                     @error('description')
-                                    <p>this field is required</p>
+                                    <p class="text-danger">this field is required</p>
                                     @enderror
                                 </div>
 

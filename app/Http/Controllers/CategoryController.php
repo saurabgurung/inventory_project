@@ -32,6 +32,10 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
 
+        $validatedData = $request->validate([
+            'category_name' => 'required|max:255',
+        ]);
+
         $data=Categories::create([
 
             'category_name'=>$request->category_name,

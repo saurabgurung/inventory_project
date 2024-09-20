@@ -42,7 +42,15 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-
+        $validatedData = $request->validate([
+            'product_name' => 'required|max:255',
+            'description' => 'required|max:500',
+            'category_id' => 'required|exists:categories,id',
+            'brands_id' => 'required|exists:brands,id',
+            'rate' => 'required|numeric|min:0',
+            'quantity' => 'required|integer|min:0',
+            'status' => 'required|in:available,not_available',
+        ]);
         try {
             $data=Products::create([
                 'product_name'=>$request->product_name,
