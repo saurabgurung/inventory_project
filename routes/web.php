@@ -11,10 +11,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
+Route::get('/register', function () {
+    return redirect('/login');
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+ // Disables registration
 
 Route::get('/brands',[BrandController::class,'create'])->name('brands');
 Route::post('/brands-store',[BrandController::class,'store'])->name('brands.store');

@@ -10,7 +10,7 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Categories</h3>
+                            <h3 class="card-title">Product update</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -73,19 +73,19 @@
 {{--                                </div>--}}
 
 
-                                <div class="form-group">
+{{--                                <div class="form-group">--}}
 
-                                    <label for="transaction_type">Status</label>
+{{--                                    <label for="transaction_type">Status</label>--}}
 
-                                    <select name="status" id="status" class="form-control" >
-                                        <option value="{{ old('status', $products->status) }}">available</option>
-                                        <option value="{{ old('status', $products->status) }}">not_available</option>
-                                    </select>
-                                </div>
+{{--                                    <select name="status" id="status" class="form-control" >--}}
+{{--                                        <option value="{{ old('status', $products->status) }}">available</option>--}}
+{{--                                        <option value="{{ old('status', $products->status) }}">not_available</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
 
                                 <div class="form-group">
                                     <label for="rate">Rate</label>
-                                    <input type="number" class="form-control" id="rate" name="rate" placeholder="Enter you the selling price" value="{{ old('rate', $products->rate) }}">
+                                    <input type="number" class="form-control" id="rate" name="rate" placeholder="Enter you the selling price" value="{{ old('rate', $products->rate) }}" min="0">
                                     @error('rate')
                                     <p class="text-danger">  This  is a required filed</p>
                                     @enderror

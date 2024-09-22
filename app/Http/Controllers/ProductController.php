@@ -49,7 +49,7 @@ class ProductController extends Controller
             'brands_id' => 'required|exists:brands,id',
             'rate' => 'required|numeric|min:0',
             'quantity' => 'required|integer|min:0',
-            'status' => 'required|in:available,not_available',
+//            'status' => '|in:available,not_available',
         ]);
         try {
             $data=Products::create([
@@ -59,7 +59,7 @@ class ProductController extends Controller
                 'brands_id'=>$request->brands_id,
                 'rate'=>$request->rate,
                 'quantity_in_stock'=>$request->quantity,
-                'status'=>$request->status
+//                'status'=>$request->status
 
             ]);
             if ($data){
@@ -106,7 +106,7 @@ class ProductController extends Controller
             'product_name'=>$request->product_name,
             'description'=>$request->description,
             'rate'=>$request->rate,
-            'status'=>$request->status  ,
+//            'status'=>$request->status  ,
             'quantity_in_stock'=>$request->quantity_in_stock
         ]);
         return redirect()->route('products.index')->with('success','Product updated successfully');

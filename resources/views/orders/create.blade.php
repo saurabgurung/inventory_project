@@ -71,7 +71,7 @@
 
                                             <div class="mb-3">
                                                 <label for="quantity" class="form-label">Quantity</label>
-                                                <input type="number" step="0.01" class="form-control" id="quantity" name="quantity" placeholder="Enter quantity" required value="" >
+                                                <input type="number" step="0.01" class="form-control" id="quantity" name="quantity" placeholder="Enter quantity" required value="" min="0" >
                                             </div>
 
 
@@ -85,7 +85,7 @@
                                         <!-- Total Amount -->
                                         <div class="mb-3">
                                             <label for="total_amount" class="form-label">Total Amount</label>
-                                            <input type="number" step="0.01" class="form-control" id="total_amount" name="total_amount" placeholder="Enter total amount" required autocomplete="off">
+                                            <input type="number" step="0.01" class="form-control" id="total_amount" name="total_amount" placeholder="Enter total amount" required autocomplete="off" readonly>
                                         </div>
 
 

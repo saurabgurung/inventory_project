@@ -44,12 +44,12 @@
 
                                                             <a  href="{{route('categories.show',$cat->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt" aria-hidden="true"></i></a>
 
-                                                            <form action="{{route('categories.destroy',$cat->id)}}" method="post" class="d-inline">
-                                                                <input type="hidden" name="_method" value="delete" />
-                                                                @csrf
-                                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>
+{{--                                                            <form action="{{route('categories.destroy',$cat->id)}}" method="post" class="d-inline">--}}
+{{--                                                                <input type="hidden" name="_method" value="delete" />--}}
+{{--                                                                @csrf--}}
+{{--                                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>--}}
 
-                                                            </form>
+{{--                                                            </form>--}}
                                                         </td>
                                                          </tr>
                                                 @endforeach

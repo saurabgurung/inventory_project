@@ -68,27 +68,27 @@
 
                                 <div class="form-group">
                                     <label for="rate">Rate</label>
-                                    <input type="text" class="form-control" id="rate" name="rate" placeholder="Enter the Rate" autocomplete="off">
+                                    <input type="text" class="form-control" id="rate" name="rate" placeholder="Enter the Rate" autocomplete="off" min="0">
                                     @error('rate')
-                                    <p class="text-danger">  This  is a required filed</p>
+                                    <p class="text-danger">  error</p>
                                     @enderror
                                 </div>
 
-                                <div class="form-group">
+{{--                                <div class="form-group">--}}
 
-                                    <label for="transaction_type">Status</label>
+{{--                                    <label for="transaction_type">Status</label>--}}
 
-                                    <select name="status" id="status" class="form-control">
-                                        <option value="available" selected>available</option>
-                                        <option value="not_available">not_available</option>
-                                    </select>
-                                </div>
+{{--                                    <select name="status" id="status" class="form-control">--}}
+{{--                                        <option value="available" selected>available</option>--}}
+{{--                                        <option value="not_available">not_available</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
 
                                 <div class="form-group">
                                     <label for="quantity">Quantity</label>
-                                    <input type="text"  class="form-control" id="quantity" name="quantity" placeholder="Enter the quantity in stock" autocomplete="off">
+                                    <input type="text"  class="form-control" id="quantity" name="quantity" placeholder="Enter the quantity in stock" autocomplete="off" min="0">
                                     @error('quantity')
-                                    <p class="text-danger">  This  is a required filed</p>
+                                    <p class="text-danger">  error</p>
                                     @enderror
                                 </div>
 
