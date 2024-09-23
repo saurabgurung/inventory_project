@@ -1,22 +1,23 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\CategoryController;
 use \App\Http\Controllers\ProductController;
 use \App\Http\Controllers\OrderController;
 use \App\Http\Controllers\BrandController;
 use \App\Http\Controllers\ReorderStockController;
+use \Illuminate\Http\Request;
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', function () {
-    return redirect('/login');
-});
+Auth::routes();
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
- // Disables registration
 
 Route::get('/brands',[BrandController::class,'create'])->name('brands');
 Route::post('/brands-store',[BrandController::class,'store'])->name('brands.store');

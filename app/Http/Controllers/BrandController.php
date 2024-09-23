@@ -44,7 +44,7 @@ class BrandController extends Controller
         if ($data){
             return redirect()->Route('brands.index')->with('success','brand created successfully');
         }
-          else {
+        else {
             return redirect()->back()->with('error','Something went wrong');
 //
 

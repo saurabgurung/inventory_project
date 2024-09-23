@@ -44,7 +44,7 @@ class CategoryController extends Controller
         ]);
 
         if ($data){
-                return redirect()->Route('categories.index')->with('success','category created successfully');
+            return redirect()->Route('categories.index')->with('success','category created successfully');
         }
         else {
             return redirect()->back()->with('error','Something went wrong');
@@ -54,10 +54,10 @@ class CategoryController extends Controller
 
 
 
-        }
+    }
 //        $data=Categories::create($request->all());
 
-        //
+    //
     //}
 
     /**
@@ -91,7 +91,7 @@ class CategoryController extends Controller
         $categories->update([
             'category_name'=>$request->category_name,
             'description'=>$request->description
-            ]);
+        ]);
         return redirect()->route('categories.index')->with('success', 'categories updated successfully.');
     }
 
