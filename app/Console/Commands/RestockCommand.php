@@ -6,6 +6,8 @@ use App\Jobs\CheckProductStockJob;
 use App\Models\Products;
 use App\Models\ReorderStock;
 use Illuminate\Console\Command;
+//use Illuminate\Support\Facades\Artisan;
+//use Illuminate\Support\Facades\DB;
 
 class RestockCommand extends Command
 {
@@ -21,22 +23,25 @@ class RestockCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Reorder stock for products with low inventory';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
+        ReorderStock::truncate();
 
+        $products = Products::where('quantity_in_stock', '<', 10)->get()->toArray();
 
-        $products = Products::where('quantity_in_stock', '<', 10)->get();
-        foreach ($products as $product) {
+        $sortedProducts = $this->bubbleSort($products);
+
+        foreach ($sortedProducts as $product) {
             ReorderStock::updateOrCreate(
-                ['product_id' => $product->id],
+                ['product_id' => $product['id']],
                 [
-                    'product_id' => $product->id,
-                    'quantity'   => $product->quantity_in_stock,
+                    'product_id' => $product['id'],
+                    'quantity'   => $product['quantity_in_stock'],
                     'created_at' => now(),
                 ]
             );
@@ -44,6 +49,27 @@ class RestockCommand extends Command
 
 
 
+        $this->info('Reorder stock process completed.');
+    }
 
+    /**
+     * Bubble Sort function to sort products by quantity_in_stock
+     *
+     * @param array $products
+     * @return array
+     */
+    public function bubbleSort(array $products)
+    {
+        $n = count($products);
+        for ($i = 0; $i < $n - 1; $i++) {
+            for ($j = 0; $j < $n - $i - 1; $j++) {
+                if ($products[$j]['quantity_in_stock'] > $products[$j + 1]['quantity_in_stock']) {
+                    $temp = $products[$j];
+                    $products[$j] = $products[$j + 1];
+                    $products[$j + 1] = $temp;
+                }
+            }
+        }
+        return $products;
     }
 }

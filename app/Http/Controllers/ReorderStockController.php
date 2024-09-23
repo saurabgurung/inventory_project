@@ -20,7 +20,7 @@ class ReorderStockController extends Controller
 //        // Pass both 'categories' and 'brands' to the view
 //        return view('reorder_stock.index', compact('products'));
 
-        $data = ReorderStock::with(['Product'])->get();
+        $data = ReorderStock::with(['Product'])->get();;
         return view('reorder_stock.index',compact('data'));
 //
 //        $data= ReorderStock::all();
